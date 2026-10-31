@@ -1,0 +1,10 @@
+# Search configuration. Weight rationale is documented in README.md.
+model: intfloat/multilingual-e5-base
+cache_dir: .cache
+aggregation: top2_mean    # top2_mean | max (per-dino score over its passages)
+extractor: rules          # rules (an LLM extractor plugs into get_extractor)
+
+weights:
+  alpha: 1.0              # dense similarity
+  beta: 1.5               # attribute match
+  gamma: 1.0              # negation / conflict penalty
