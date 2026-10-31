@@ -49,8 +49,8 @@ def validate(raw: list[dict]) -> list[str]:
     """Return a list of schema errors (empty when valid)."""
     errs: list[str] = []
     names = [d.get("nome") for d in raw]
-    if len(raw) != 30:
-        errs.append(f"expected 30 dinos, got {len(raw)}")
+    if not raw:
+        errs.append("empty dataset")
     if len(set(names)) != len(names):
         errs.append("duplicate names")
     for d in raw:

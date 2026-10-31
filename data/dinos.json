@@ -3,11 +3,20 @@
     "nome": "Tyrannosaurus",
     "periodo": "Cretáceo Superior",
     "dieta": "carnívoro",
-    "tamanho": {"comprimento_m": 12.0, "categoria": "grande"},
+    "tamanho": {
+      "comprimento_m": 12.0,
+      "categoria": "grande"
+    },
     "postura": "bípede",
     "tracos": [
-      {"traco": "cabeca_grande", "incerto": false},
-      {"traco": "bracos_curtos", "incerto": false}
+      {
+        "traco": "cabeca_grande",
+        "incerto": false
+      },
+      {
+        "traco": "bracos_curtos",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Predador bípede enorme, com cerca de 12 metros de comprimento e crânio maciço de até 1,5 metro. A mandíbula é larga e cheia de dentes grossos e serrilhados, do tamanho de bananas. Os braços são minúsculos em relação ao corpo, com apenas dois dedos. As pernas traseiras são muito fortes e a cauda grossa equilibra a cabeça pesada. Impressões de pele indicam escamas na maior parte do corpo adulto.",
     "parafrases": [
@@ -21,13 +30,28 @@
     "nome": "Triceratops",
     "periodo": "Cretáceo Superior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 9.0, "categoria": "grande"},
+    "tamanho": {
+      "comprimento_m": 9.0,
+      "categoria": "grande"
+    },
     "postura": "quadrúpede",
     "tracos": [
-      {"traco": "chifres", "incerto": false},
-      {"traco": "escudo", "incerto": false},
-      {"traco": "bico", "incerto": false},
-      {"traco": "cabeca_grande", "incerto": false}
+      {
+        "traco": "chifres",
+        "incerto": false
+      },
+      {
+        "traco": "escudo",
+        "incerto": false
+      },
+      {
+        "traco": "bico",
+        "incerto": false
+      },
+      {
+        "traco": "cabeca_grande",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Herbívoro quadrúpede robusto, com cerca de 9 metros e corpo pesado como o de um rinoceronte gigante. O crânio é um dos maiores de qualquer animal terrestre, com dois chifres longos acima dos olhos e um chifre curto no focinho. Atrás da cabeça há um escudo ósseo sólido que cobre o pescoço. A boca termina em um bico afiado parecido com o de um papagaio.",
     "parafrases": [
@@ -41,11 +65,20 @@
     "nome": "Velociraptor",
     "periodo": "Cretáceo Superior",
     "dieta": "carnívoro",
-    "tamanho": {"comprimento_m": 2.0, "categoria": "pequeno"},
+    "tamanho": {
+      "comprimento_m": 2.0,
+      "categoria": "pequeno"
+    },
     "postura": "bípede",
     "tracos": [
-      {"traco": "penas", "incerto": false},
-      {"traco": "garras_grandes", "incerto": false}
+      {
+        "traco": "penas",
+        "incerto": false
+      },
+      {
+        "traco": "garras_grandes",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Pequeno predador bípede do tamanho de um peru, com cerca de 2 metros de comprimento contando a longa cauda e uns 15 quilos. O corpo era coberto de penas e os braços tinham penas longas como asas, comprovadas por marcas de inserção nos ossos. Cada pé tinha uma garra em forma de foice que ficava levantada do chão. O focinho era longo, estreito e levemente curvado para cima.",
     "parafrases": [
@@ -59,11 +92,20 @@
     "nome": "Stegosaurus",
     "periodo": "Jurássico Superior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 9.0, "categoria": "grande"},
+    "tamanho": {
+      "comprimento_m": 9.0,
+      "categoria": "grande"
+    },
     "postura": "quadrúpede",
     "tracos": [
-      {"traco": "placas", "incerto": false},
-      {"traco": "espinhos_cauda", "incerto": false}
+      {
+        "traco": "placas",
+        "incerto": false
+      },
+      {
+        "traco": "espinhos_cauda",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Herbívoro quadrúpede de cerca de 9 metros, com o dorso bem arqueado porque as patas traseiras são muito mais longas que as dianteiras. Ao longo das costas corre uma fileira dupla e alternada de grandes placas ósseas em forma de losango. A ponta da cauda tem quatro espinhos longos. A cabeça é estreita e minúscula em relação ao corpo.",
     "parafrases": [
@@ -77,11 +119,20 @@
     "nome": "Brachiosaurus",
     "periodo": "Jurássico Superior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 22.0, "categoria": "gigante"},
+    "tamanho": {
+      "comprimento_m": 22.0,
+      "categoria": "gigante"
+    },
     "postura": "quadrúpede",
     "tracos": [
-      {"traco": "pescoco_longo", "incerto": false},
-      {"traco": "patas_dianteiras_longas", "incerto": false}
+      {
+        "traco": "pescoco_longo",
+        "incerto": false
+      },
+      {
+        "traco": "patas_dianteiras_longas",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Saurópode gigantesco, com cerca de 22 metros de comprimento e cabeça a uns 12 metros do chão. As patas dianteiras são mais longas que as traseiras, o que deixa o dorso inclinado para trás como o de uma girafa. O pescoço é extremamente longo e a cauda é relativamente curta para um saurópode. A cabeça é pequena, com uma elevação arredondada sobre o focinho onde ficavam as narinas.",
     "parafrases": [
@@ -95,12 +146,24 @@
     "nome": "Spinosaurus",
     "periodo": "Cretáceo Superior",
     "dieta": "piscívoro",
-    "tamanho": {"comprimento_m": 14.0, "categoria": "grande"},
+    "tamanho": {
+      "comprimento_m": 14.0,
+      "categoria": "grande"
+    },
     "postura": "bípede",
     "tracos": [
-      {"traco": "vela_dorsal", "incerto": false},
-      {"traco": "focinho_longo", "incerto": false},
-      {"traco": "semiaquatico", "incerto": true}
+      {
+        "traco": "vela_dorsal",
+        "incerto": false
+      },
+      {
+        "traco": "focinho_longo",
+        "incerto": false
+      },
+      {
+        "traco": "semiaquatico",
+        "incerto": true
+      }
     ],
     "descricao_fisica": "Predador muito grande, com cerca de 14 metros, possivelmente o maior terópode conhecido. Nas costas tinha uma vela alta sustentada por espinhos vertebrais de mais de 1,5 metro. O focinho é longo e estreito como o de um crocodilo, com dentes cônicos para agarrar peixes. As patas traseiras eram curtas e a cauda alta e achatada, o que sugere hábitos semiaquáticos, embora o quanto ele nadava ainda seja debatido.",
     "parafrases": [
@@ -115,12 +178,24 @@
     "nome": "Ankylosaurus",
     "periodo": "Cretáceo Superior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 7.5, "categoria": "grande"},
+    "tamanho": {
+      "comprimento_m": 7.5,
+      "categoria": "grande"
+    },
     "postura": "quadrúpede",
     "tracos": [
-      {"traco": "armadura", "incerto": false},
-      {"traco": "clava_cauda", "incerto": false},
-      {"traco": "bico", "incerto": false}
+      {
+        "traco": "armadura",
+        "incerto": false
+      },
+      {
+        "traco": "clava_cauda",
+        "incerto": false
+      },
+      {
+        "traco": "bico",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Herbívoro quadrúpede baixo e muito largo, com cerca de 7 metros. O dorso inteiro era coberto por placas ósseas e cravos embutidos na pele, formando uma armadura. A cabeça era larga, triangular e também blindada, com pequenas projeções nos cantos. A cauda terminava em uma clava óssea pesada usada como arma.",
     "parafrases": [
@@ -134,11 +209,20 @@
     "nome": "Parasaurolophus",
     "periodo": "Cretáceo Superior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 9.5, "categoria": "grande"},
+    "tamanho": {
+      "comprimento_m": 9.5,
+      "categoria": "grande"
+    },
     "postura": "facultativo",
     "tracos": [
-      {"traco": "crista", "incerto": false},
-      {"traco": "bico_de_pato", "incerto": false}
+      {
+        "traco": "crista",
+        "incerto": false
+      },
+      {
+        "traco": "bico_de_pato",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Hadrossauro de cerca de 9,5 metros que andava sobre duas ou quatro patas. A marca registrada é uma crista tubular longa e oca que se curvava para trás a partir do topo da cabeça, podendo passar de um metro. A crista tinha canais ligados às narinas e provavelmente funcionava como câmara de ressonância para sons. O focinho terminava em um bico largo e achatado.",
     "parafrases": [
@@ -152,10 +236,16 @@
     "nome": "Pachycephalosaurus",
     "periodo": "Cretáceo Superior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 4.5, "categoria": "médio"},
+    "tamanho": {
+      "comprimento_m": 4.5,
+      "categoria": "médio"
+    },
     "postura": "bípede",
     "tracos": [
-      {"traco": "cabeca_domo", "incerto": false}
+      {
+        "traco": "cabeca_domo",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Herbívoro bípede de cerca de 4,5 metros. O topo do crânio formava um domo ósseo de até 25 centímetros de espessura. O domo era rodeado por pequenos nódulos e cravos ósseos, com mais deles no focinho. Se o domo era usado em cabeçadas diretas ou em golpes laterais ainda é debatido.",
     "parafrases": [
@@ -169,7 +259,10 @@
     "nome": "Allosaurus",
     "periodo": "Jurássico Superior",
     "dieta": "carnívoro",
-    "tamanho": {"comprimento_m": 9.0, "categoria": "grande"},
+    "tamanho": {
+      "comprimento_m": 9.0,
+      "categoria": "grande"
+    },
     "postura": "bípede",
     "tracos": [],
     "descricao_fisica": "Grande predador bípede do Jurássico, com cerca de 9 metros. O crânio é longo e relativamente leve, com um par de pequenas cristas ósseas acima dos olhos e outra baixa ao longo do focinho. Os braços são bem desenvolvidos, mais longos que os de tiranossauros, com três dedos com garras curvas. Corpo mais esguio que o do Tyrannosaurus, com cauda longa.",
@@ -184,11 +277,20 @@
     "nome": "Diplodocus",
     "periodo": "Jurássico Superior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 26.0, "categoria": "gigante"},
+    "tamanho": {
+      "comprimento_m": 26.0,
+      "categoria": "gigante"
+    },
     "postura": "quadrúpede",
     "tracos": [
-      {"traco": "pescoco_longo", "incerto": false},
-      {"traco": "cauda_chicote", "incerto": false}
+      {
+        "traco": "pescoco_longo",
+        "incerto": false
+      },
+      {
+        "traco": "cauda_chicote",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Saurópode muito longo e relativamente esguio, com cerca de 26 metros, boa parte em pescoço e cauda. A cauda é extremamente comprida e afina até uma ponta em forma de chicote. O corpo é mantido mais horizontal, com patas traseiras um pouco mais longas que as dianteiras. A cabeça é pequena e alongada, com dentes finos como lápis apenas na frente da boca.",
     "parafrases": [
@@ -202,10 +304,16 @@
     "nome": "Iguanodon",
     "periodo": "Cretáceo Inferior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 10.0, "categoria": "grande"},
+    "tamanho": {
+      "comprimento_m": 10.0,
+      "categoria": "grande"
+    },
     "postura": "facultativo",
     "tracos": [
-      {"traco": "espinho_polegar", "incerto": false}
+      {
+        "traco": "espinho_polegar",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Herbívoro volumoso de cerca de 10 metros que andava sobre quatro patas mas podia se erguer sobre duas. O polegar de cada mão era um espinho cônico e rígido. Os três dedos do meio eram unidos e terminavam em cascos, e o quinto dedo era flexível para agarrar. A cabeça era longa e terminava em um bico sem dentes na frente.",
     "parafrases": [
@@ -219,11 +327,20 @@
     "nome": "Brontosaurus",
     "periodo": "Jurássico Superior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 22.0, "categoria": "gigante"},
+    "tamanho": {
+      "comprimento_m": 22.0,
+      "categoria": "gigante"
+    },
     "postura": "quadrúpede",
     "tracos": [
-      {"traco": "pescoco_longo", "incerto": false},
-      {"traco": "cauda_chicote", "incerto": false}
+      {
+        "traco": "pescoco_longo",
+        "incerto": false
+      },
+      {
+        "traco": "cauda_chicote",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Saurópode gigante de cerca de 22 metros, parente próximo do Diplodocus, mas muito mais robusto. O pescoço é longo, largo e profundo, mais grosso que o de outros diplodocídeos. A cauda é longa e termina em ponta fina como chicote. As patas são grossas como colunas e o corpo é pesado.",
     "parafrases": [
@@ -238,10 +355,16 @@
     "nome": "Dilophosaurus",
     "periodo": "Jurássico Inferior",
     "dieta": "carnívoro",
-    "tamanho": {"comprimento_m": 7.0, "categoria": "médio"},
+    "tamanho": {
+      "comprimento_m": 7.0,
+      "categoria": "médio"
+    },
     "postura": "bípede",
     "tracos": [
-      {"traco": "crista", "incerto": false}
+      {
+        "traco": "crista",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Predador bípede esguio de cerca de 7 metros, um dos maiores carnívoros do início do Jurássico. No topo da cabeça havia duas cristas finas e paralelas, em forma de meia-lua. O focinho tinha uma reentrância marcada entre os dentes da frente e os de trás. Não há evidência de gola retrátil nem de cuspe venenoso, e ele era bem maior que a versão do cinema.",
     "parafrases": [
@@ -255,11 +378,20 @@
     "nome": "Carnotaurus",
     "periodo": "Cretáceo Superior",
     "dieta": "carnívoro",
-    "tamanho": {"comprimento_m": 8.0, "categoria": "grande"},
+    "tamanho": {
+      "comprimento_m": 8.0,
+      "categoria": "grande"
+    },
     "postura": "bípede",
     "tracos": [
-      {"traco": "chifres", "incerto": false},
-      {"traco": "bracos_curtos", "incerto": false}
+      {
+        "traco": "chifres",
+        "incerto": false
+      },
+      {
+        "traco": "bracos_curtos",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Predador bípede de cerca de 8 metros, com crânio curto e alto. Acima dos olhos tinha dois chifres grossos e curtos, como os de um touro. Os braços eram extremamente reduzidos, ainda menores proporcionalmente que os do Tyrannosaurus, com antebraços quase inexistentes. A pele preservada mostra escamas e fileiras de calombos maiores nas laterais.",
     "parafrases": [
@@ -273,11 +405,20 @@
     "nome": "Giganotosaurus",
     "periodo": "Cretáceo Superior",
     "dieta": "carnívoro",
-    "tamanho": {"comprimento_m": 12.5, "categoria": "grande"},
+    "tamanho": {
+      "comprimento_m": 12.5,
+      "categoria": "grande"
+    },
     "postura": "bípede",
     "tracos": [
-      {"traco": "cabeca_grande", "incerto": false},
-      {"traco": "bracos_curtos", "incerto": false}
+      {
+        "traco": "cabeca_grande",
+        "incerto": false
+      },
+      {
+        "traco": "bracos_curtos",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Predador bípede gigantesco, com cerca de 12 a 13 metros, comparável ou maior que o Tyrannosaurus em comprimento. O crânio é longo e estreito, com dentes laminados como facas, feitos para cortar carne. Os braços são curtos mas com três dedos. O corpo é mais leve e alongado que o do T. rex.",
     "parafrases": [
@@ -291,11 +432,20 @@
     "nome": "Baryonyx",
     "periodo": "Cretáceo Inferior",
     "dieta": "piscívoro",
-    "tamanho": {"comprimento_m": 9.0, "categoria": "grande"},
+    "tamanho": {
+      "comprimento_m": 9.0,
+      "categoria": "grande"
+    },
     "postura": "bípede",
     "tracos": [
-      {"traco": "focinho_longo", "incerto": false},
-      {"traco": "garras_grandes", "incerto": false}
+      {
+        "traco": "focinho_longo",
+        "incerto": false
+      },
+      {
+        "traco": "garras_grandes",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Predador bípede de cerca de 9 metros. O focinho é longo, estreito e com ponta em forma de roseta, como o de um crocodilo-gavial. O polegar de cada mão tinha uma garra enorme e curva de uns 30 centímetros. Escamas de peixe encontradas no estômago confirmam que comia peixes. Não tinha a vela alta do Spinosaurus, apenas uma pequena crista no focinho.",
     "parafrases": [
@@ -309,13 +459,28 @@
     "nome": "Gallimimus",
     "periodo": "Cretáceo Superior",
     "dieta": "onívoro",
-    "tamanho": {"comprimento_m": 6.0, "categoria": "médio"},
+    "tamanho": {
+      "comprimento_m": 6.0,
+      "categoria": "médio"
+    },
     "postura": "bípede",
     "tracos": [
-      {"traco": "bico", "incerto": false},
-      {"traco": "pernas_longas", "incerto": false},
-      {"traco": "pescoco_longo", "incerto": false},
-      {"traco": "penas", "incerto": true}
+      {
+        "traco": "bico",
+        "incerto": false
+      },
+      {
+        "traco": "pernas_longas",
+        "incerto": false
+      },
+      {
+        "traco": "pescoco_longo",
+        "incerto": false
+      },
+      {
+        "traco": "penas",
+        "incerto": true
+      }
     ],
     "descricao_fisica": "Bípede leve de cerca de 6 metros, com corpo parecido com o de um avestruz. Tinha pescoço longo, cabeça pequena e um bico sem dentes. As pernas eram longas e finas, feitas para correr muito rápido. Parentes próximos preservam penas, então provavelmente era emplumado.",
     "parafrases": [
@@ -329,11 +494,20 @@
     "nome": "Compsognathus",
     "periodo": "Jurássico Superior",
     "dieta": "carnívoro",
-    "tamanho": {"comprimento_m": 1.0, "categoria": "pequeno"},
+    "tamanho": {
+      "comprimento_m": 1.0,
+      "categoria": "pequeno"
+    },
     "postura": "bípede",
     "tracos": [
-      {"traco": "pernas_longas", "incerto": false},
-      {"traco": "penas", "incerto": true}
+      {
+        "traco": "pernas_longas",
+        "incerto": false
+      },
+      {
+        "traco": "penas",
+        "incerto": true
+      }
     ],
     "descricao_fisica": "Um dos menores dinossauros conhecidos, com cerca de 1 metro, a maior parte em cauda, e o peso de uma galinha. Corpo leve, pernas longas e finas e cabeça pequena e pontuda. Os braços eram curtos, com dois dedos funcionais. Um exemplar tem um lagarto inteiro no estômago, mostrando que caçava pequenos vertebrados.",
     "parafrases": [
@@ -347,12 +521,24 @@
     "nome": "Oviraptor",
     "periodo": "Cretáceo Superior",
     "dieta": "onívoro",
-    "tamanho": {"comprimento_m": 1.6, "categoria": "pequeno"},
+    "tamanho": {
+      "comprimento_m": 1.6,
+      "categoria": "pequeno"
+    },
     "postura": "bípede",
     "tracos": [
-      {"traco": "bico", "incerto": false},
-      {"traco": "crista", "incerto": true},
-      {"traco": "penas", "incerto": true}
+      {
+        "traco": "bico",
+        "incerto": false
+      },
+      {
+        "traco": "crista",
+        "incerto": true
+      },
+      {
+        "traco": "penas",
+        "incerto": true
+      }
     ],
     "descricao_fisica": "Pequeno bípede de cerca de 1,6 metro, provavelmente coberto de penas como seus parentes. A cabeça é curta, com um bico robusto sem dentes, parecido com o de um papagaio. O focinho parece ter tido uma crista óssea, mas o crânio do holótipo está esmagado e o formato é incerto. Parentes foram encontrados chocando ninhos com os braços abertos como asas, e não roubando ovos como o nome sugere.",
     "parafrases": [
@@ -367,13 +553,28 @@
     "nome": "Therizinosaurus",
     "periodo": "Cretáceo Superior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 10.0, "categoria": "grande"},
+    "tamanho": {
+      "comprimento_m": 10.0,
+      "categoria": "grande"
+    },
     "postura": "bípede",
     "tracos": [
-      {"traco": "garras_grandes", "incerto": false},
-      {"traco": "pescoco_longo", "incerto": false},
-      {"traco": "bico", "incerto": false},
-      {"traco": "penas", "incerto": true}
+      {
+        "traco": "garras_grandes",
+        "incerto": false
+      },
+      {
+        "traco": "pescoco_longo",
+        "incerto": false
+      },
+      {
+        "traco": "bico",
+        "incerto": false
+      },
+      {
+        "traco": "penas",
+        "incerto": true
+      }
     ],
     "descricao_fisica": "Bípede grande, com cerca de 10 metros, barriga larga e postura mais ereta. Os braços eram longos e terminavam em garras em forma de foice de até 1 metro, as maiores de qualquer animal conhecido. Tinha pescoço longo, cabeça pequena e bico. Apesar das garras, era herbívoro, e parentes próximos tinham penas filamentosas.",
     "parafrases": [
@@ -387,11 +588,20 @@
     "nome": "Microraptor",
     "periodo": "Cretáceo Inferior",
     "dieta": "carnívoro",
-    "tamanho": {"comprimento_m": 0.8, "categoria": "pequeno"},
+    "tamanho": {
+      "comprimento_m": 0.8,
+      "categoria": "pequeno"
+    },
     "postura": "bípede",
     "tracos": [
-      {"traco": "penas", "incerto": false},
-      {"traco": "asas", "incerto": false}
+      {
+        "traco": "penas",
+        "incerto": false
+      },
+      {
+        "traco": "asas",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Dinossauro minúsculo, com menos de 1 metro e peso de um corvo. Tinha penas de voo longas nos braços e também nas pernas, formando quatro asas. A plumagem preservada era preta com brilho iridescente. Provavelmente planava ou voava entre as árvores.",
     "parafrases": [
@@ -405,11 +615,20 @@
     "nome": "Deinonychus",
     "periodo": "Cretáceo Inferior",
     "dieta": "carnívoro",
-    "tamanho": {"comprimento_m": 3.4, "categoria": "médio"},
+    "tamanho": {
+      "comprimento_m": 3.4,
+      "categoria": "médio"
+    },
     "postura": "bípede",
     "tracos": [
-      {"traco": "garras_grandes", "incerto": false},
-      {"traco": "penas", "incerto": true}
+      {
+        "traco": "garras_grandes",
+        "incerto": false
+      },
+      {
+        "traco": "penas",
+        "incerto": true
+      }
     ],
     "descricao_fisica": "Predador bípede de cerca de 3,4 metros e 70 quilos. Cada pé tinha uma garra em forma de foice de uns 12 centímetros, mantida levantada. Os braços eram longos, com três dedos de garras curvas, e a cauda era enrijecida por ossos alongados. Pelo parentesco com outros dromeossaurídeos, provavelmente tinha penas.",
     "parafrases": [
@@ -423,11 +642,20 @@
     "nome": "Utahraptor",
     "periodo": "Cretáceo Inferior",
     "dieta": "carnívoro",
-    "tamanho": {"comprimento_m": 6.0, "categoria": "médio"},
+    "tamanho": {
+      "comprimento_m": 6.0,
+      "categoria": "médio"
+    },
     "postura": "bípede",
     "tracos": [
-      {"traco": "garras_grandes", "incerto": false},
-      {"traco": "penas", "incerto": true}
+      {
+        "traco": "garras_grandes",
+        "incerto": false
+      },
+      {
+        "traco": "penas",
+        "incerto": true
+      }
     ],
     "descricao_fisica": "O maior dromeossaurídeo conhecido, com cerca de 6 metros e meia tonelada. Era robusto e pesado para um raptor, com pernas grossas. A garra em foice do pé chegava a mais de 20 centímetros. Pelo parentesco, provavelmente tinha penas.",
     "parafrases": [
@@ -441,10 +669,16 @@
     "nome": "Edmontosaurus",
     "periodo": "Cretáceo Superior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 12.0, "categoria": "grande"},
+    "tamanho": {
+      "comprimento_m": 12.0,
+      "categoria": "grande"
+    },
     "postura": "facultativo",
     "tracos": [
-      {"traco": "bico_de_pato", "incerto": false}
+      {
+        "traco": "bico_de_pato",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Hadrossauro grande, com até 12 metros, que andava sobre duas ou quatro patas. A cabeça é longa e baixa, sem crista óssea, terminando em um bico largo e achatado como o de um pato. Atrás do bico havia centenas de dentes empilhados para triturar plantas. Uma múmia preservou uma crista de pele mole no topo da cabeça, como a de um galo.",
     "parafrases": [
@@ -458,13 +692,28 @@
     "nome": "Styracosaurus",
     "periodo": "Cretáceo Superior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 5.5, "categoria": "médio"},
+    "tamanho": {
+      "comprimento_m": 5.5,
+      "categoria": "médio"
+    },
     "postura": "quadrúpede",
     "tracos": [
-      {"traco": "chifres", "incerto": false},
-      {"traco": "escudo", "incerto": false},
-      {"traco": "espinhos", "incerto": false},
-      {"traco": "bico", "incerto": false}
+      {
+        "traco": "chifres",
+        "incerto": false
+      },
+      {
+        "traco": "escudo",
+        "incerto": false
+      },
+      {
+        "traco": "espinhos",
+        "incerto": false
+      },
+      {
+        "traco": "bico",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Ceratopsiano quadrúpede de cerca de 5,5 metros. Tinha um único chifre longo e reto no focinho, de até 60 centímetros. O escudo atrás da cabeça era rodeado por quatro a seis espinhos longos apontando para trás e para os lados. Os chifres sobre os olhos eram pequenos.",
     "parafrases": [
@@ -478,10 +727,16 @@
     "nome": "Argentinosaurus",
     "periodo": "Cretáceo Superior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 35.0, "categoria": "gigante"},
+    "tamanho": {
+      "comprimento_m": 35.0,
+      "categoria": "gigante"
+    },
     "postura": "quadrúpede",
     "tracos": [
-      {"traco": "pescoco_longo", "incerto": false}
+      {
+        "traco": "pescoco_longo",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Titanossauro colossal, um dos maiores animais terrestres que já existiram, com cerca de 30 a 35 metros e 70 toneladas. Conhecido por poucos ossos, mas as vértebras têm mais de 1 metro de altura. Tinha pescoço e cauda longos, corpo muito largo e pernas como colunas. As estimativas de tamanho variam bastante por causa do material fragmentário.",
     "parafrases": [
@@ -495,11 +750,20 @@
     "nome": "Protoceratops",
     "periodo": "Cretáceo Superior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 2.0, "categoria": "pequeno"},
+    "tamanho": {
+      "comprimento_m": 2.0,
+      "categoria": "pequeno"
+    },
     "postura": "quadrúpede",
     "tracos": [
-      {"traco": "escudo", "incerto": false},
-      {"traco": "bico", "incerto": false}
+      {
+        "traco": "escudo",
+        "incerto": false
+      },
+      {
+        "traco": "bico",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Ceratopsiano pequeno, com cerca de 2 metros e o tamanho de uma ovelha. Tinha um escudo ósseo atrás da cabeça, mas nenhum chifre verdadeiro, apenas uma leve saliência no focinho. A boca terminava em um bico curvo de papagaio. Um fóssil famoso mostra um Protoceratops travado em luta com um Velociraptor.",
     "parafrases": [
@@ -513,11 +777,20 @@
     "nome": "Corythosaurus",
     "periodo": "Cretáceo Superior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 9.0, "categoria": "grande"},
+    "tamanho": {
+      "comprimento_m": 9.0,
+      "categoria": "grande"
+    },
     "postura": "facultativo",
     "tracos": [
-      {"traco": "crista", "incerto": false},
-      {"traco": "bico_de_pato", "incerto": false}
+      {
+        "traco": "crista",
+        "incerto": false
+      },
+      {
+        "traco": "bico_de_pato",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Hadrossauro de cerca de 9 metros, que andava sobre duas ou quatro patas. No topo da cabeça tinha uma crista alta, arredondada e achatada dos lados, lembrando um capacete coríntio. A crista era oca, com passagens nasais, e provavelmente servia para emitir sons. O bico era largo e achatado como o de um pato.",
     "parafrases": [
@@ -531,12 +804,24 @@
     "nome": "Kentrosaurus",
     "periodo": "Jurássico Superior",
     "dieta": "herbívoro",
-    "tamanho": {"comprimento_m": 4.5, "categoria": "médio"},
+    "tamanho": {
+      "comprimento_m": 4.5,
+      "categoria": "médio"
+    },
     "postura": "quadrúpede",
     "tracos": [
-      {"traco": "placas", "incerto": false},
-      {"traco": "espinhos", "incerto": false},
-      {"traco": "espinhos_cauda", "incerto": false}
+      {
+        "traco": "placas",
+        "incerto": false
+      },
+      {
+        "traco": "espinhos",
+        "incerto": false
+      },
+      {
+        "traco": "espinhos_cauda",
+        "incerto": false
+      }
     ],
     "descricao_fisica": "Estegossauro africano de cerca de 4,5 metros, menor que o Stegosaurus. Tinha placas estreitas no pescoço e na parte da frente das costas, que viravam espinhos longos e pontudos na metade de trás do corpo e na cauda. Um par de espinhos longos saía dos ombros ou dos quadris. A cabeça era pequena e estreita.",
     "parafrases": [
@@ -546,5 +831,544 @@
       "dinossauro de placas com espinhos saindo dos ombros"
     ],
     "notas": "Posição do espinho lateral (ombro ou quadril) é debatida."
+  },
+  {
+    "nome": "Spinosaurus mirabilis",
+    "periodo": "Cretáceo Superior",
+    "dieta": "piscívoro",
+    "tamanho": {
+      "comprimento_m": 8.0,
+      "categoria": "grande"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "crista",
+        "incerto": false
+      },
+      {
+        "traco": "focinho_longo",
+        "incerto": false
+      },
+      {
+        "traco": "vela_dorsal",
+        "incerto": true
+      },
+      {
+        "traco": "semiaquatico",
+        "incerto": true
+      }
+    ],
+    "descricao_fisica": "Espinossaurídeo do Níger descrito em 2026, conhecido por um subadulto de cerca de 8 metros. Sua marca é uma crista óssea alta em forma de cimitarra, curvada para cima e para trás sobre o focinho. O focinho é longo e baixo, com as bordas superior e inferior quase paralelas, e os dentes da frente se encaixam uns nos outros como uma armadilha para peixes. Espinhos vertebrais longos indicam uma vela nas costas, mas o formato dela é desconhecido.",
+    "parafrases": [
+      "espinossauro com uma crista curva em forma de espada na cabeça",
+      "parente do Spinosaurus com um chifre de osso curvado para trás no focinho",
+      "dinossauro pescador do deserto do Saara com crista de cimitarra",
+      "cara de crocodilo comprida e baixa com uma lâmina na testa"
+    ],
+    "notas": "Descrito por Sereno et al. 2026 (Science). Material fragmentário de indivíduo imaturo; tamanho adulto e vela incertos."
+  },
+  {
+    "nome": "Ceratosaurus",
+    "periodo": "Jurássico Superior",
+    "dieta": "carnívoro",
+    "tamanho": {
+      "comprimento_m": 6.0,
+      "categoria": "médio"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "chifres",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Predador bípede de cerca de 6 metros. Tinha um chifre alto e estreito sobre o nariz e duas pequenas saliências ósseas acima dos olhos. Os dentes da mandíbula superior eram muito longos, como lâminas. Uma fileira de pequenas placas ósseas corria ao longo do meio das costas.",
+    "parafrases": [
+      "carnívoro com um chifre no nariz",
+      "predador de duas patas com um chifre de rinoceronte no focinho",
+      "caçador jurássico com chifre na cara e dentes compridos",
+      "terópode médio com uma ponta de osso em cima do nariz"
+    ]
+  },
+  {
+    "nome": "Albertosaurus",
+    "periodo": "Cretáceo Superior",
+    "dieta": "carnívoro",
+    "tamanho": {
+      "comprimento_m": 9.0,
+      "categoria": "grande"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "bracos_curtos",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Tiranossaurídeo de cerca de 9 metros, primo menor e mais leve do Tyrannosaurus. O crânio era grande mas mais estreito, com pequenas cristas ósseas na frente dos olhos. Os braços eram curtos, com dois dedos. As pernas longas sugerem que era mais rápido que o T. rex.",
+    "parafrases": [
+      "um T. rex menor e mais magro",
+      "tiranossauro esguio canadense com bracinhos",
+      "predador de duas patas parecido com o T. rex mas mais leve e rápido",
+      "carnívoro grande de braço curto que caçava em bando"
+    ]
+  },
+  {
+    "nome": "Majungasaurus",
+    "periodo": "Cretáceo Superior",
+    "dieta": "carnívoro",
+    "tamanho": {
+      "comprimento_m": 7.0,
+      "categoria": "médio"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "chifres",
+        "incerto": false
+      },
+      {
+        "traco": "bracos_curtos",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Abelissaurídeo de Madagascar com cerca de 7 metros. O crânio era curto e largo, com um único chifre arredondado no topo da cabeça. Os braços eram minúsculos, como os do Carnotaurus. O corpo era robusto e as pernas curtas e fortes.",
+    "parafrases": [
+      "carnívoro de Madagascar com um calombo de chifre no alto da cabeça",
+      "parente do Carnotaurus com um chifre só na testa",
+      "predador atarracado de cara curta e bracinhos",
+      "terópode com um galo de osso em cima da cabeça"
+    ]
+  },
+  {
+    "nome": "Coelophysis",
+    "periodo": "Triássico Superior",
+    "dieta": "carnívoro",
+    "tamanho": {
+      "comprimento_m": 3.0,
+      "categoria": "médio"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "pernas_longas",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Um dos primeiros dinossauros, com cerca de 3 metros mas muito leve, uns 20 quilos. O corpo era fino, com pescoço longo e curvado e cabeça estreita cheia de dentes pequenos. As pernas eram longas e finas, feitas para correr. Centenas de esqueletos foram achados juntos no Novo México.",
+    "parafrases": [
+      "dinossauro magrelo e primitivo do Triássico",
+      "carnívoro fininho de pescoço comprido que corria rápido",
+      "um dos primeiros dinossauros, leve como uma criança",
+      "caçador esguio de cabeça estreita"
+    ]
+  },
+  {
+    "nome": "Herrerasaurus",
+    "periodo": "Triássico Superior",
+    "dieta": "carnívoro",
+    "tamanho": {
+      "comprimento_m": 4.5,
+      "categoria": "médio"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "garras_grandes",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Um dos dinossauros mais antigos conhecidos, da Argentina, com cerca de 4,5 metros. O crânio era longo e baixo, com uma articulação flexível na mandíbula para segurar presas. As mãos tinham três dedos longos com garras curvas. Era bípede, com cauda longa e pernas fortes.",
+    "parafrases": [
+      "um dos primeiros dinossauros carnívoros, da Argentina",
+      "predador primitivo do Triássico com mãos de garra",
+      "caçador de duas patas antigo com cabeça comprida",
+      "dinossauro bem antigo do tamanho de um carro"
+    ]
+  },
+  {
+    "nome": "Suchomimus",
+    "periodo": "Cretáceo Inferior",
+    "dieta": "piscívoro",
+    "tamanho": {
+      "comprimento_m": 10.0,
+      "categoria": "grande"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "focinho_longo",
+        "incerto": false
+      },
+      {
+        "traco": "garras_grandes",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Espinossaurídeo africano de cerca de 10 metros. O focinho era longo e estreito como o de um crocodilo, com mais de cem dentes cônicos. O polegar tinha uma garra grande e curva. Tinha apenas uma crista baixa ao longo das costas, sem a vela alta do Spinosaurus.",
+    "parafrases": [
+      "parente do Baryonyx com cara de crocodilo",
+      "pescador grande africano com focinho comprido e garras",
+      "imitador de crocodilo de duas patas",
+      "espinossaurídeo sem vela alta, só uma lombada baixa"
+    ]
+  },
+  {
+    "nome": "Yutyrannus",
+    "periodo": "Cretáceo Inferior",
+    "dieta": "carnívoro",
+    "tamanho": {
+      "comprimento_m": 9.0,
+      "categoria": "grande"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "penas",
+        "incerto": false
+      },
+      {
+        "traco": "crista",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Tiranossauroide chinês de cerca de 9 metros, o maior animal conhecido com penas preservadas. O corpo era coberto de filamentos longos, como uma penugem. Tinha uma crista baixa e ondulada no focinho. Os braços eram mais longos que os do T. rex, com três dedos.",
+    "parafrases": [
+      "um tiranossauro peludo coberto de penas",
+      "parente do T. rex emplumado da China",
+      "predador grande com penugem pelo corpo todo",
+      "o maior dinossauro com penas, de três dedos"
+    ]
+  },
+  {
+    "nome": "Archaeopteryx",
+    "periodo": "Jurássico Superior",
+    "dieta": "carnívoro",
+    "tamanho": {
+      "comprimento_m": 0.5,
+      "categoria": "pequeno"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "penas",
+        "incerto": false
+      },
+      {
+        "traco": "asas",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Pequeno dinossauro emplumado do tamanho de um corvo, com cerca de meio metro. Tinha asas com penas de voo, mas as mãos ainda tinham três dedos com garras. A boca tinha dentes pequenos em vez de bico, e a cauda era longa e ossuda, com penas dos dois lados. Os fósseis da Alemanha são famosos por mostrar a transição entre dinossauros e aves.",
+    "parafrases": [
+      "a primeira ave, com dentes e rabo de lagarto",
+      "passarinho primitivo com garras nas asas",
+      "pássaro jurássico com dentes e cauda comprida",
+      "elo entre dinossauros e aves do tamanho de um pombo"
+    ]
+  },
+  {
+    "nome": "Ouranosaurus",
+    "periodo": "Cretáceo Inferior",
+    "dieta": "herbívoro",
+    "tamanho": {
+      "comprimento_m": 8.0,
+      "categoria": "grande"
+    },
+    "postura": "facultativo",
+    "tracos": [
+      {
+        "traco": "vela_dorsal",
+        "incerto": true
+      },
+      {
+        "traco": "bico",
+        "incerto": false
+      },
+      {
+        "traco": "espinho_polegar",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Herbívoro africano de cerca de 8 metros, parente do Iguanodon. Espinhos vertebrais altos formavam uma vela ou uma corcova ao longo das costas e da cauda. O focinho era longo e achatado, terminando em um bico largo. O polegar tinha um pequeno espinho cônico.",
+    "parafrases": [
+      "herbívoro com uma vela nas costas",
+      "parece um Iguanodon com uma barbatana no lombo",
+      "dinossauro de bico largo com corcova alta",
+      "vegetariano do Saara com crista de espinhos nas costas"
+    ],
+    "notas": "Se os espinhos sustentavam uma vela fina ou uma corcova de gordura é debatido."
+  },
+  {
+    "nome": "Maiasaura",
+    "periodo": "Cretáceo Superior",
+    "dieta": "herbívoro",
+    "tamanho": {
+      "comprimento_m": 9.0,
+      "categoria": "grande"
+    },
+    "postura": "facultativo",
+    "tracos": [
+      {
+        "traco": "bico_de_pato",
+        "incerto": false
+      },
+      {
+        "traco": "crista",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Hadrossauro de cerca de 9 metros. O bico era largo e achatado, como o de um pato. Acima dos olhos tinha uma pequena crista óssea sólida, bem mais discreta que as dos hadrossauros de crista oca. Ninhos com filhotes mostram que os pais cuidavam das crias.",
+    "parafrases": [
+      "dinossauro bico de pato com uma cristinha baixa na testa",
+      "pato gigante que cuidava dos filhotes no ninho",
+      "hadrossauro de cabeça quase lisa com um pequeno calombo",
+      "herbívoro de bico largo da mamãe dinossauro"
+    ]
+  },
+  {
+    "nome": "Lambeosaurus",
+    "periodo": "Cretáceo Superior",
+    "dieta": "herbívoro",
+    "tamanho": {
+      "comprimento_m": 9.0,
+      "categoria": "grande"
+    },
+    "postura": "facultativo",
+    "tracos": [
+      {
+        "traco": "crista",
+        "incerto": false
+      },
+      {
+        "traco": "bico_de_pato",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Hadrossauro de cerca de 9 metros. No topo da cabeça tinha uma crista oca em forma de machadinha, com uma lâmina para frente e uma ponta para trás. A crista tinha passagens nasais por dentro. O bico era largo e achatado.",
+    "parafrases": [
+      "dinossauro bico de pato com uma crista em forma de machado",
+      "pato gigante com uma machadinha na cabeça",
+      "hadrossauro com crista de duas pontas, uma pra frente e uma pra trás",
+      "herbívoro com um enfeite de osso em forma de machado"
+    ]
+  },
+  {
+    "nome": "Pachyrhinosaurus",
+    "periodo": "Cretáceo Superior",
+    "dieta": "herbívoro",
+    "tamanho": {
+      "comprimento_m": 7.0,
+      "categoria": "médio"
+    },
+    "postura": "quadrúpede",
+    "tracos": [
+      {
+        "traco": "escudo",
+        "incerto": false
+      },
+      {
+        "traco": "espinhos",
+        "incerto": false
+      },
+      {
+        "traco": "bico",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Ceratopsiano quadrúpede de cerca de 7 metros. Em vez de chifres, tinha uma grande placa óssea grossa e rugosa sobre o nariz e os olhos. O escudo atrás da cabeça tinha pontas curvas e irregulares. A boca terminava em bico de papagaio.",
+    "parafrases": [
+      "parente do Triceratops sem chifres, com um calombo grosso no nariz",
+      "rinoceronte de nariz achatado e gola com pontas",
+      "ceratopsiano de focinho rugoso em vez de chifre",
+      "herbívoro de quatro patas com uma almofada de osso na cara"
+    ]
+  },
+  {
+    "nome": "Psittacosaurus",
+    "periodo": "Cretáceo Inferior",
+    "dieta": "herbívoro",
+    "tamanho": {
+      "comprimento_m": 2.0,
+      "categoria": "pequeno"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "bico",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Pequeno ceratopsiano primitivo de cerca de 2 metros que andava sobre duas patas. A cabeça era curta e alta, com um bico curvo de papagaio e pequenas projeções nas bochechas. Não tinha escudo nem chifres. Um fóssil preservado mostra cerdas longas no topo da cauda e coloração mais escura nas costas.",
+    "parafrases": [
+      "lagarto papagaio de duas patas",
+      "dinossauro pequeno com bico de papagaio e cerdas no rabo",
+      "ancestral do Triceratops sem gola nem chifres",
+      "herbívoro do tamanho de um cachorro grande com bicão"
+    ]
+  },
+  {
+    "nome": "Euoplocephalus",
+    "periodo": "Cretáceo Superior",
+    "dieta": "herbívoro",
+    "tamanho": {
+      "comprimento_m": 6.0,
+      "categoria": "médio"
+    },
+    "postura": "quadrúpede",
+    "tracos": [
+      {
+        "traco": "armadura",
+        "incerto": false
+      },
+      {
+        "traco": "clava_cauda",
+        "incerto": false
+      },
+      {
+        "traco": "bico",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Anquilossaurídeo de cerca de 6 metros, menor que o Ankylosaurus. O corpo era largo e baixo, coberto de faixas de placas ósseas e cravos. Até as pálpebras tinham placas ósseas. A cauda terminava em uma clava óssea dupla.",
+    "parafrases": [
+      "um Ankylosaurus menor com marreta no rabo",
+      "tanque blindado médio com pálpebras de osso",
+      "herbívoro achatado coberto de cravos com clava na cauda",
+      "tatu gigante de cabeça blindada"
+    ]
+  },
+  {
+    "nome": "Borealopelta",
+    "periodo": "Cretáceo Inferior",
+    "dieta": "herbívoro",
+    "tamanho": {
+      "comprimento_m": 5.5,
+      "categoria": "médio"
+    },
+    "postura": "quadrúpede",
+    "tracos": [
+      {
+        "traco": "armadura",
+        "incerto": false
+      },
+      {
+        "traco": "espinhos",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Nodossaurídeo de cerca de 5,5 metros, famoso por um fóssil tão bem preservado que parece uma estátua. O corpo era coberto de placas ósseas com capas de queratina. Dois espinhos longos saíam dos ombros. A cauda não tinha clava, e o pigmento preservado indica dorso marrom-avermelhado e barriga mais clara.",
+    "parafrases": [
+      "dinossauro blindado com espinhos nos ombros e sem martelo no rabo",
+      "tanque de armadura que parece uma estátua de pedra",
+      "anquilossauro sem clava, com chifres saindo dos ombros",
+      "herbívoro de couraça avermelhada com pontas laterais"
+    ]
+  },
+  {
+    "nome": "Apatosaurus",
+    "periodo": "Jurássico Superior",
+    "dieta": "herbívoro",
+    "tamanho": {
+      "comprimento_m": 22.0,
+      "categoria": "gigante"
+    },
+    "postura": "quadrúpede",
+    "tracos": [
+      {
+        "traco": "pescoco_longo",
+        "incerto": false
+      },
+      {
+        "traco": "cauda_chicote",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Saurópode gigante de cerca de 22 metros, parente próximo do Brontosaurus. O pescoço era longo, muito largo e profundo, com vértebras robustas. A cauda era longa e terminava em uma ponta fina como chicote. As patas eram grossas como colunas e o corpo muito pesado.",
+    "parafrases": [
+      "pescoçudo gigante de pescoço grosso e rabo de chicote",
+      "o lagarto enganador, gordão e comprido",
+      "saurópode encorpado com pernas de elefante",
+      "irmão do Brontosaurus, de pescoço largo"
+    ]
+  },
+  {
+    "nome": "Camarasaurus",
+    "periodo": "Jurássico Superior",
+    "dieta": "herbívoro",
+    "tamanho": {
+      "comprimento_m": 18.0,
+      "categoria": "gigante"
+    },
+    "postura": "quadrúpede",
+    "tracos": [
+      {
+        "traco": "pescoco_longo",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Saurópode de cerca de 18 metros, o mais comum do Jurássico norte-americano. O pescoço e a cauda eram mais curtos que os dos diplodocídeos. A cabeça era curta e em caixa, com focinho arredondado e dentes grandes em forma de colher. As patas dianteiras e traseiras tinham tamanho parecido.",
+    "parafrases": [
+      "pescoçudo de cabeça quadrada e focinho redondo",
+      "saurópode com pescoço e rabo mais curtos que os outros",
+      "herbívoro gigante de cara de caixa e dentes de colher",
+      "dinossauro pescoço longo mais compacto"
+    ]
+  },
+  {
+    "nome": "Amargasaurus",
+    "periodo": "Cretáceo Inferior",
+    "dieta": "herbívoro",
+    "tamanho": {
+      "comprimento_m": 10.0,
+      "categoria": "grande"
+    },
+    "postura": "quadrúpede",
+    "tracos": [
+      {
+        "traco": "pescoco_longo",
+        "incerto": false
+      },
+      {
+        "traco": "espinhos",
+        "incerto": false
+      },
+      {
+        "traco": "vela_dorsal",
+        "incerto": true
+      }
+    ],
+    "descricao_fisica": "Saurópode argentino relativamente pequeno, com cerca de 10 metros. Duas fileiras paralelas de espinhos longos saíam das vértebras do pescoço e das costas. Esses espinhos podiam ser cobertos de queratina ou ligados por pele formando duas velas. O pescoço era mais curto que o de outros saurópodes.",
+    "parafrases": [
+      "pescoçudo com duas fileiras de espinhos no pescoço",
+      "saurópode espinhento da Argentina",
+      "dinossauro de pescoço longo com pontas compridas nas costas",
+      "herbívoro de quatro patas com espetos no cangote"
+    ],
+    "notas": "Se os espinhos sustentavam velas de pele ou eram pontas de queratina é debatido."
+  },
+  {
+    "nome": "Mamenchisaurus",
+    "periodo": "Jurássico Superior",
+    "dieta": "herbívoro",
+    "tamanho": {
+      "comprimento_m": 22.0,
+      "categoria": "gigante"
+    },
+    "postura": "quadrúpede",
+    "tracos": [
+      {
+        "traco": "pescoco_longo",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Saurópode chinês de cerca de 22 metros, com um dos pescoços mais longos de qualquer animal. O pescoço chegava a metade do comprimento total, com 19 vértebras alongadas. A cabeça era pequena e a cauda relativamente curta. As vértebras do pescoço eram cheias de cavidades de ar, o que as deixava leves.",
+    "parafrases": [
+      "dinossauro com o pescoço mais comprido de todos",
+      "pescoçudo chinês cujo pescoço é metade do corpo",
+      "saurópode de pescoço absurdamente longo e cabeça pequena",
+      "girafa extrema da China jurássica"
+    ]
   }
 ]

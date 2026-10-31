@@ -31,7 +31,7 @@ class SearchRequest(BaseModel):
     """Body of POST /search."""
 
     query: str = Field(min_length=1, max_length=500)
-    top_k: int = Field(default=5, ge=1, le=30)
+    top_k: int = Field(default=5, ge=1, le=50)
 
 
 def _ranker(request: Request) -> Ranker:
