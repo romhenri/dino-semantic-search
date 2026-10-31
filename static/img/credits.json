@@ -1,0 +1,152 @@
+{
+ "Tyrannosaurus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Tyrannosaurus_rex_Reconstruction_by_Nobu_Tamura.jpg"
+ },
+ "Triceratops": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY 2.5",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Triceratops_BW.jpg"
+ },
+ "Velociraptor": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY 2.5",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Velociraptor_mongoliensis.jpg"
+ },
+ "Stegosaurus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY-SA 3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Stegosaurus_BW_transparent.png"
+ },
+ "Brachiosaurus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Brachiosaurus_NT_new.jpg"
+ },
+ "Spinosaurus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Spinosaurus_life_restoration_with_Onchopristis.jpg"
+ },
+ "Ankylosaurus": {
+  "autor": "Emily Willoughby",
+  "licenca": "CC BY-SA 3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Ankylosaurus_magniventris_reconstruction.png"
+ },
+ "Parasaurolophus": {
+  "autor": "Connor Ashbridge",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Life_reconstruction_of_Parasaurolophus_walkeri.png"
+ },
+ "Pachycephalosaurus": {
+  "autor": "Fred Wierum",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Pachycephalosaurus_Reconstruction_transparent.png"
+ },
+ "Allosaurus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY 2.5",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Allosaurus_BW.jpg"
+ },
+ "Diplodocus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY 3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Diplodocus_BW.jpg"
+ },
+ "Iguanodon": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Iguanodon_new_NT_transparent.png"
+ },
+ "Brontosaurus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Brontosaurus_NT_small.jpg"
+ },
+ "Dilophosaurus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Dilophosaurus_NT.jpg"
+ },
+ "Carnotaurus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY 3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Carnotaurus_BW.jpg"
+ },
+ "Giganotosaurus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY 2.5",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Giganotosaurus_BW.jpg"
+ },
+ "Baryonyx": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY 2.5",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Baryonyx_BW.jpg"
+ },
+ "Gallimimus": {
+  "autor": "PaleoNeolitic",
+  "licenca": "CC BY 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Gallimimus_Restoration.png"
+ },
+ "Compsognathus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY 2.5",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Compsognathus_BW.jpg"
+ },
+ "Oviraptor": {
+  "autor": "PaleoNeolitic",
+  "licenca": "CC BY 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Oviraptor_Restoration.png"
+ },
+ "Therizinosaurus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Therizinosaurus_NT.jpg"
+ },
+ "Microraptor": {
+  "autor": "Fred Wierum",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Microraptor_Restoration.png"
+ },
+ "Deinonychus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY 2.5",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Deinonychus_BW.jpg"
+ },
+ "Utahraptor": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY 2.5",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Utahraptor_BW.jpg"
+ },
+ "Edmontosaurus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY 2.5",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Edmontosaurus_BW.jpg"
+ },
+ "Styracosaurus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY-SA 3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Styracosaurus_BW_transparent.png"
+ },
+ "Argentinosaurus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY 3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Argentinosaurus_BW.jpg"
+ },
+ "Protoceratops": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY 2.5",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Protoceratops_BW.jpg"
+ },
+ "Corythosaurus": {
+  "autor": "Connor Ashbridge",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Life_reconstruction_of_Corythosaurus_casuarius.png"
+ },
+ "Kentrosaurus": {
+  "autor": "Nobu Tamura",
+  "licenca": "CC BY-SA 3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Kentrosaurus_NT_transparent.png"
+ }
+}

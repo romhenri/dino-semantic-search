@@ -8,6 +8,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, Request
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from app.search.ranker import Ranker, Result, build_ranker, load_config
@@ -23,6 +24,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
 
 app = FastAPI(title="Dino Search", lifespan=lifespan)
+app.mount("/img", StaticFiles(directory=STATIC / "img"), name="img")
 
 
 class SearchRequest(BaseModel):

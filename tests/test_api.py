@@ -32,3 +32,11 @@ def test_search_validates_input(client: TestClient) -> None:
 def test_dinos_and_index(client: TestClient) -> None:
     assert len(client.get("/dinos").json()) == 30
     assert client.get("/").status_code == 200
+
+
+def test_every_dino_has_an_illustration_with_credits(client: TestClient) -> None:
+    credits = client.get("/img/credits.json").json()
+    for d in client.get("/dinos").json():
+        r = client.get(f"/img/{d['nome']}.png")
+        assert r.status_code == 200 and r.headers["content-type"] == "image/png", d["nome"]
+        assert credits[d["nome"]]["autor"] and credits[d["nome"]]["licenca"].startswith("CC")

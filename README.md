@@ -47,6 +47,7 @@ app/search/ranker.py       fusão de scores + explicação por traço
 app/config.yaml            modelo, agregação, pesos
 app/main.py                FastAPI
 static/index.html          front-end
+static/img/                ilustrações (PNG, 320px) + credits.json
 eval/queries.json          52 consultas de teste
 eval/run_eval.py           Top-1, Top-3, MRR
 tests/                     pytest
@@ -176,3 +177,43 @@ dois casos) e piorou as negações com β baixo. Foi removido.
   `scores()` (a multiplicação de matrizes e a agregação), sem mudar o resto.
 - 30 itens: NumPy de força bruta é o certo aqui; a abstração `DenseIndex` existe para o
   dia em que não for.
+
+## Créditos das ilustrações
+
+As ilustrações em `static/img/` vêm da [Wikimedia Commons](https://commons.wikimedia.org/),
+reduzidas para 320 px de largura e convertidas para PNG. Todas têm licença Creative Commons
+(CC BY ou CC BY-SA); as adaptações seguem a mesma licença do original. Autor, licença e link
+de cada uma também aparecem no card e em `static/img/credits.json`.
+
+| dinossauro | autor | licença |
+|---|---|---|
+| Tyrannosaurus | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Tyrannosaurus_rex_Reconstruction_by_Nobu_Tamura.jpg) |
+| Triceratops | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Triceratops_BW.jpg) |
+| Velociraptor | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Velociraptor_mongoliensis.jpg) |
+| Stegosaurus | Nobu Tamura | [CC BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Stegosaurus_BW_transparent.png) |
+| Brachiosaurus | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Brachiosaurus_NT_new.jpg) |
+| Spinosaurus | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Spinosaurus_life_restoration_with_Onchopristis.jpg) |
+| Ankylosaurus | Emily Willoughby | [CC BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Ankylosaurus_magniventris_reconstruction.png) |
+| Parasaurolophus | Connor Ashbridge | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Life_reconstruction_of_Parasaurolophus_walkeri.png) |
+| Pachycephalosaurus | Fred Wierum | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Pachycephalosaurus_Reconstruction_transparent.png) |
+| Allosaurus | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Allosaurus_BW.jpg) |
+| Diplodocus | Nobu Tamura | [CC BY 3.0](https://commons.wikimedia.org/wiki/File:Diplodocus_BW.jpg) |
+| Iguanodon | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Iguanodon_new_NT_transparent.png) |
+| Brontosaurus | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Brontosaurus_NT_small.jpg) |
+| Dilophosaurus | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Dilophosaurus_NT.jpg) |
+| Carnotaurus | Nobu Tamura | [CC BY 3.0](https://commons.wikimedia.org/wiki/File:Carnotaurus_BW.jpg) |
+| Giganotosaurus | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Giganotosaurus_BW.jpg) |
+| Baryonyx | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Baryonyx_BW.jpg) |
+| Gallimimus | PaleoNeolitic | [CC BY 4.0](https://commons.wikimedia.org/wiki/File:Gallimimus_Restoration.png) |
+| Compsognathus | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Compsognathus_BW.jpg) |
+| Oviraptor | PaleoNeolitic | [CC BY 4.0](https://commons.wikimedia.org/wiki/File:Oviraptor_Restoration.png) |
+| Therizinosaurus | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Therizinosaurus_NT.jpg) |
+| Microraptor | Fred Wierum | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Microraptor_Restoration.png) |
+| Deinonychus | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Deinonychus_BW.jpg) |
+| Utahraptor | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Utahraptor_BW.jpg) |
+| Edmontosaurus | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Edmontosaurus_BW.jpg) |
+| Styracosaurus | Nobu Tamura | [CC BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Styracosaurus_BW_transparent.png) |
+| Argentinosaurus | Nobu Tamura | [CC BY 3.0](https://commons.wikimedia.org/wiki/File:Argentinosaurus_BW.jpg) |
+| Protoceratops | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Protoceratops_BW.jpg) |
+| Corythosaurus | Connor Ashbridge | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Life_reconstruction_of_Corythosaurus_casuarius.png) |
+| Kentrosaurus | Nobu Tamura | [CC BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Kentrosaurus_NT_transparent.png) |
