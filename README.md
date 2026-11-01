@@ -1,10 +1,22 @@
 # Dino Search by Similarity
 
-Busca semântica de dinossauros a partir de descrições físicas livres em português.
-Você escreve "quadrúpede enorme com placas nas costas e espinhos na cauda" e recebe os
-dinossauros mais parecidos, com score e justificativa por traço.
+Semantic search that identifies dinosaurs from free-text physical descriptions written in
+Portuguese. Type "quadrúpede enorme com placas nas costas e espinhos na cauda" ("huge
+quadruped with plates on its back and spikes on its tail") and get the most similar
+dinosaurs, each with a score and a per-trait explanation.
 
-## Como rodar
+The search is a hybrid: dense retrieval with multilingual E5 embeddings, combined by late
+score fusion with rule-based attribute extraction that handles negations ("sem penas",
+"without feathers") and sizes, which embeddings alone get wrong.
+
+![Search results for a stegosaur description](docs/screenshots/search.jpg)
+
+![Negated query: large carnivore without feathers and without a sail](docs/screenshots/negation.jpg)
+
+The interface and the queries are in Portuguese, since that is the language the extractor
+and the dataset target.
+
+## Running
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
@@ -12,227 +24,241 @@ pip install -r requirements.txt
 uvicorn app.main:app            # http://localhost:8000
 ```
 
-Na primeira execução o modelo (~1,1 GB) é baixado e os embeddings da base são
-calculados e salvos em `.cache/`. Nas seguintes, o cache é reaproveitado e só é
-recalculado se `data/dinos.json` ou o modelo mudarem (a chave é um hash dos dois).
+On the first run the model (~1.1 GB) is downloaded and the dataset embeddings are computed
+and saved to `.cache/`. Later runs reuse the cache; it is only rebuilt when
+`data/dinos.json` or the model changes (the cache key is a hash of both).
 
 ```bash
 pip install -r requirements-dev.txt
-python -m app.search.dinos      # valida data/dinos.json
-pytest                          # testes (o de API carrega o modelo)
+python -m app.search.dinos      # validate data/dinos.json
+pytest                          # tests (the API test loads the model)
 mypy app eval tests --ignore-missing-imports
-python -m eval.run_eval         # tabela das três configurações
-python -m eval.run_eval --grid  # varredura de β/γ
+python -m eval.run_eval         # results table for the three configurations
+python -m eval.run_eval --grid  # β/γ weight sweep
 python -m eval.run_eval --failures
 python -m eval.run_eval --model sentence-transformers/paraphrase-multilingual-mpnet-base-v2
 ```
 
 ### API
 
-- `POST /search` com `{"query": str, "top_k": int = 5}` retorna uma lista com `nome`, `score_final`,
-  `similaridade` (score_final em [0, 1], para a barra), `score_embedding` (cosseno bruto),
-  `score_atributos`, `penalidade`, `tracos_correspondentes`, `tracos_nao_correspondentes`,
-  `tracos_conflitantes` e `descricao_fisica`.
-- `GET /dinos` lista a base.
-- `GET /` serve o front-end (`static/index.html`).
+- `POST /search` with `{"query": str, "top_k": int = 5}` returns a list with `nome`,
+  `score_final`, `similaridade` (score_final scaled to [0, 1] for the bar), `score_embedding`
+  (raw cosine), `score_atributos`, `penalidade`, `tracos_correspondentes` (matched traits),
+  `tracos_nao_correspondentes` (missing traits), `tracos_conflitantes` (conflicting traits)
+  and `descricao_fisica` (physical description).
+- `GET /dinos` lists the dataset.
+- `GET /` serves the front-end (`static/index.html`).
+- `GET /img/<name>.png` serves the illustrations; `GET /img/credits.json` their credits.
 
-## Estrutura
+## Layout
 
 ```
-data/dinos.json            50 dinossauros, vocabulário fechado de 24 traços
-app/search/dinos.py        carregamento + validação do schema
-app/search/embedder.py     embeddings (E5) + índice NumPy com cache em disco
-app/search/extractor.py    extração de postura/dieta/tamanho/traços/negações por regras
-app/search/ranker.py       fusão de scores + explicação por traço
-app/config.yaml            modelo, agregação, pesos
+data/dinos.json            50 dinosaurs, closed vocabulary of 24 traits
+app/search/dinos.py        loading + schema validation
+app/search/embedder.py     E5 embeddings + NumPy index with disk cache
+app/search/extractor.py    rule-based extraction of posture/diet/size/traits/negations
+app/search/ranker.py       score fusion + per-trait explanation
+app/config.yaml            model, aggregation, weights
 app/main.py                FastAPI
 static/index.html          front-end
-static/img/                ilustrações (PNG, 320px) + credits.json
-eval/queries.json          66 consultas de teste
+static/img/                illustrations (PNG, 320 px) + credits.json
+eval/queries.json          66 test queries
 eval/run_eval.py           Top-1, Top-3, MRR
 tests/                     pytest
+docs/screenshots/          README screenshots
 ```
 
-## Decisões de design
+## Design decisions
 
-**Dados.** Cada dinossauro tem `tracos` como lista de `{"traco", "incerto"}` dentro de um
-vocabulário fechado (`TRAITS` em `dinos.py`), o que permite casar a consulta com a base sem
-ambiguidade. Traços debatidos levam `"incerto": true`: penas em Deinonychus, Utahraptor,
-Gallimimus, Therizinosaurus e Compsognathus (inferidas por parentesco, sem evidência direta),
-Oviraptor (inferidas por parentes, como a crista, mal conhecida no holótipo esmagado) e o
-hábito semiaquático do Spinosaurus aegyptiacus. Velas inferidas também são incertas: Ouranosaurus (vela
-ou corcova), Amargasaurus (velas de pele ou pontas de queratina) e Spinosaurus mirabilis, cujo
-formato de vela é desconhecido. Velociraptor (marcas de inserção de penas na ulna) e
-Microraptor (plumagem preservada) têm penas sem marca de incerteza. Outros debates vão
-no campo `notas` (postura do Spinosaurus aegyptiacus, validade do gênero Brontosaurus, posição do espinho
-lateral do Kentrosaurus, material imaturo do Spinosaurus mirabilis).
+**Data.** Each dinosaur has `tracos` (traits) as a list of `{"traco", "incerto"}` drawn from a
+closed vocabulary (`TRAITS` in `dinos.py`), so queries match the dataset without ambiguity.
+Debated traits carry `"incerto": true` (uncertain): feathers on Deinonychus, Utahraptor,
+Gallimimus, Therizinosaurus and Compsognathus (inferred from relatives, no direct evidence);
+Oviraptor (feathers inferred from relatives, and a crest that is poorly known from the
+crushed holotype); and the semi-aquatic habits of Spinosaurus aegyptiacus. Inferred sails are
+uncertain too: Ouranosaurus (sail or hump), Amargasaurus (skin sails or keratin spikes) and
+Spinosaurus mirabilis, whose sail shape is unknown. Velociraptor (quill knobs on the ulna)
+and Microraptor (preserved plumage) have feathers without the uncertainty flag. Other
+debates go in the `notas` field (Spinosaurus aegyptiacus posture, validity of the genus
+Brontosaurus, position of the Kentrosaurus side spike, immature material of Spinosaurus
+mirabilis).
 
-A base tem os 30 dinossauros da lista original mais 20: Spinosaurus mirabilis (descrito por
-Sereno et al. em fevereiro de 2026 na *Science*), Ceratosaurus, Albertosaurus,
+The dataset holds the original list of 30 dinosaurs plus 20 more: Spinosaurus mirabilis
+(described by Sereno et al. in *Science*, February 2026), Ceratosaurus, Albertosaurus,
 Majungasaurus, Coelophysis, Herrerasaurus, Suchomimus, Yutyrannus, Archaeopteryx,
 Ouranosaurus, Maiasaura, Lambeosaurus, Pachyrhinosaurus, Psittacosaurus, Euoplocephalus,
-Borealopelta, Apatosaurus, Camarasaurus, Amargasaurus e Mamenchisaurus. Vários foram
-escolhidos por criar confusões úteis para a avaliação: Ouranosaurus é herbívoro com vela,
-Euoplocephalus também tem clava, Suchomimus também tem cara de crocodilo e Pachyrhinosaurus é
-um ceratopsiano sem chifres. As categorias de tamanho são validadas contra o comprimento:
-pequeno < 2,5 m, médio < 7,5 m, grande < 15 m, gigante acima disso.
+Borealopelta, Apatosaurus, Camarasaurus, Amargasaurus and Mamenchisaurus. Several were picked
+because they create useful confusions for the evaluation: Ouranosaurus is a herbivore with a
+sail, Euoplocephalus also has a tail club, Suchomimus also has a crocodile-like snout, and
+Pachyrhinosaurus is a ceratopsian without horns. Size categories are validated against
+length: small < 2.5 m, medium < 7.5 m, large < 15 m, giant above that.
 
-**Modelo.** `intfloat/multilingual-e5-base`, com os prefixos `query:` e `passage:`. Ele foi
-treinado para recuperação assimétrica (consulta curta contra passagem longa), que é
-exatamente o caso aqui. Na avaliação ele ganhou do `paraphrase-multilingual-mpnet-base-v2`
-com folga no modo só embeddings (MRR 0,807 contra 0,616).
+**Model.** `intfloat/multilingual-e5-base`, with the `query:` and `passage:` prefixes. It was
+trained for asymmetric retrieval (short query against a longer passage), which is exactly
+this task. In the evaluation it clearly beat `paraphrase-multilingual-mpnet-base-v2` in
+embeddings-only mode (MRR 0.807 vs 0.616).
 
-**Busca densa.** A descrição e cada paráfrase são vetores separados (250 no total). O score
-de um dino é a média dos seus 2 melhores vetores (`top2_mean`), que superou o máximo
-(MRR 0,814 contra 0,760 só com embeddings, e 0,967 contra 0,944 no híbrido): um único
-vetor parecido por acaso pesa menos. O índice é uma multiplicação de matrizes em NumPy,
-isolada em `DenseIndex`, onde dá para trocar por FAISS ou pgvector se a base crescer.
+**Dense retrieval.** The description and every paraphrase are separate vectors (251 in
+total). A dinosaur's score is the mean of its 2 best vectors (`top2_mean`), which beat the
+max (MRR 0.807 vs 0.753 embeddings-only, 0.967 vs 0.944 hybrid): a single vector that
+happens to be close counts for less. The index is a NumPy matrix product isolated in
+`DenseIndex`, which is where FAISS or pgvector would go if the dataset grew.
 
-**Extrator.** Léxico de sinônimos em regex sobre texto sem acento e em minúsculas
-(`"corno"`, `"pontas na testa"` viram `chifres`; `"martelo no rabo"` vira `clava_cauda`). Nos
-traços vence o casamento mais longo (`"bico de pato"` ganha de `"bico"`). Negação:
-uma pista (`sem`, `não tem`, `nenhum`...) nega o primeiro traço que aparece até 3
-palavras depois dela, mais os encadeados por `e`/`nem`/`ou`, e para em `com`/`mas`/vírgula.
-Assim, "sem espinhos no escudo" nega só `espinhos`. Um "não" solto não nega traços ("não sei,
-tem chifres"), mas anula uma dieta, postura ou tamanho logo em seguida ("não é carnívoro"
-deixa a dieta sem valor, em vez de casar com carnívoro). Adjetivos de tamanho dentro ou logo
-depois de um traço não contam como tamanho do animal ("garras gigantes"). Comparações explícitas ("do tamanho
-de um urso") têm prioridade sobre adjetivos. Para trocar por um LLM, basta qualquer
-`Callable[[str], QueryAttrs]` registrado em `get_extractor`; `QueryAttrs.from_dict` valida o
-JSON do LLM contra o vocabulário.
+**Extractor.** A regex synonym lexicon over lowercased, accent-stripped text (`"corno"` and
+`"pontas na testa"` become `chifres`, horns; `"martelo no rabo"`, "hammer on the tail",
+becomes `clava_cauda`, tail club). For traits the longest match wins (`"bico de pato"`, duck
+bill, beats `"bico"`, beak). Negation: a cue (`sem`, `não tem`, `nenhum`, i.e. "without",
+"doesn't have", "no") negates the first trait within 3 words after it, plus traits chained
+by `e`/`nem`/`ou` ("and"/"nor"/"or"), and stops at `com`/`mas` ("with"/"but") or a comma. So
+"sem espinhos no escudo" ("no spikes on the frill") negates only `espinhos`. A bare "não"
+("not") does not negate traits ("não sei, tem chifres", "I don't know, it has horns"), but it
+cancels a diet, posture or size right after it ("não é carnívoro", "it's not a carnivore",
+leaves the diet unset instead of matching carnivore). Size adjectives inside or right after a
+trait don't count as the animal's size ("garras gigantes", "giant claws"). Explicit
+comparisons ("do tamanho de um urso", "the size of a bear") take priority over adjectives.
+To swap in an LLM, any `Callable[[str], QueryAttrs]` registered in `get_extractor` works;
+`QueryAttrs.from_dict` validates the LLM's JSON against the vocabulary.
 
-**Fusão.**
-`score_final = α · denso_normalizado + β · match_atributos − γ · penalidade_negação`
+**Fusion (late fusion).**
+`score_final = α · normalized_dense + β · attribute_match − γ · negation_penalty`
 
-- `denso_normalizado`: cosseno reescalado por consulta para [0, 1] (min-max entre os 50
-  dinos). Os cossenos do E5 ficam numa faixa estreita (~0,75 a 0,9); sem isso, os pesos não
-  seriam comparáveis.
-- `match_atributos`: média sobre os atributos que a consulta menciona. Traço presente vale
-  1 (0,75 se incerto). Postura e dieta valem 1 se iguais e 0,5 se compatíveis (facultativo
-  contra bípede, piscívoro contra carnívoro, onívoro contra os dois); com 0, contam como
-  conflito. Tamanho é ordinal: 1 − distância/3.
-- `penalidade`: +1 para cada traço negado que o dino tem (+0,5 se incerto).
-- Nome: se a consulta contém palavras do nome de algum dino, a fração do nome presente entra
-  como mais um atributo. "spinosaurus" casa metade do nome das duas espécies (empate, que o
-  denso desempata a favor do *aegyptiacus*); "spinosaurus mirabilis" casa o nome inteiro de
-  uma só. O embedding sozinho não lê bem nomes científicos. Um nome citado como referência
-  ("parecido com um Triceratops mas sem chifres") não atrapalha, porque a negação custa mais
-  que o nome rende.
+- `normalized_dense`: cosine rescaled per query to [0, 1] (min-max across the 50 dinosaurs).
+  E5 cosines sit in a narrow band (~0.75 to 0.9); without this the weights wouldn't be
+  comparable.
+- `attribute_match`: the mean over the attributes the query mentions. A present trait scores
+  1 (0.75 if uncertain). Posture and diet score 1 when equal and 0.5 when compatible
+  (facultative vs biped, piscivore vs carnivore, omnivore vs either); 0 counts as a conflict.
+  Size is ordinal: 1 − distance/3.
+- `negation_penalty`: +1 for each negated trait the dinosaur has (+0.5 if uncertain).
+- Name: if the query contains words from a dinosaur's name, the fraction of the name present
+  becomes one more attribute. "spinosaurus" matches half of the name of both species (a tie
+  that the dense score breaks in favour of *aegyptiacus*); "spinosaurus mirabilis" matches
+  one species fully. Embeddings alone don't read scientific names well. A name used as a
+  reference ("parecido com um Triceratops mas sem chifres", "like a Triceratops but without
+  horns") doesn't hurt, because the negation costs more than the name earns.
 
-**Pesos escolhidos: α = 1,0, β = 1,5, γ = 1,0.** A varredura (`--grid`) mostra um platô
-de MRR 0,967 para todo β ≥ 1,5 e γ ≥ 0,5. Abaixo dele a qualidade cai (β = γ = 0,25: MRR
-0,931; β = 1, γ = 0,5: 0,960; γ = 0 em qualquer β: 0,932, ou seja, sem penalidade as
-negações quebram). O platô e a escolha se mantiveram iguais ao passar de 30 para 50
-dinossauros. Escolhi a borda esquerda do platô: o menor peso de atributos que
-atinge o máximo, para o denso continuar o mais influente possível. Na prática, os
-atributos definem as faixas e o denso ordena dentro delas e decide sozinho quando o
-extrator não reconhece nada (aí `match_atributos` é 0 para todos e o híbrido vira só
-embeddings).
+**Chosen weights: α = 1.0, β = 1.5, γ = 1.0.** The sweep (`--grid`) shows a plateau at
+MRR 0.967 for every β ≥ 1.5 and γ ≥ 0.5. Below it quality drops (β = γ = 0.25: MRR 0.931;
+β = 1, γ = 0.5: 0.960; γ = 0 at any β: 0.932, i.e. negations break without the penalty). The
+plateau and the choice stayed the same when the dataset grew from 30 to 50 dinosaurs. I
+picked the left edge of the plateau, the smallest attribute weight that reaches the
+maximum, so the dense score stays as influential as possible. Out of a maximum of 2.5
+points, 40% comes from embeddings and 60% from the rules. In practice the attributes sort
+dinosaurs into bands, the dense score orders them within each band, and it decides alone
+when the extractor recognizes nothing (then `attribute_match` is 0 for everyone and the
+hybrid becomes embeddings-only).
 
-**Explicabilidade.** Cada resultado lista os traços que bateram (com `(parcial)` quando
-o match é parcial, como um traço incerto ou um tamanho adjacente), os que não bateram e os
-que conflitam (postura ou dieta incompatível, tamanho a 2+ categorias de distância, traço
-negado presente).
+**Explainability.** Each result lists the traits that matched (marked `(parcial)`, partial,
+for partial matches such as an uncertain trait or an adjacent size), the ones that didn't,
+and the ones that conflict (incompatible posture or diet, size 2+ categories away, a negated
+trait that is present).
 
-## Resultados
+## Results
 
-66 consultas em `eval/queries.json`: 22 diretas, 21 leigas, 14 com negação e 9 ambíguas
-(com várias respostas aceitáveis; conta o primeiro acerto). Modelo E5-base, agregação
-`top2_mean`.
+66 queries in `eval/queries.json`: 22 direct, 21 lay/vague, 14 with negation and 9 ambiguous
+(several acceptable answers; the first hit counts). E5-base model, `top2_mean` aggregation.
 
-| configuração | Top-1 | Top-3 | MRR |
+| configuration | Top-1 | Top-3 | MRR |
 |---|---|---|---|
-| só embeddings | 0,712 | 0,894 | 0,807 |
-| só atributos | 0,727 | 0,833 | 0,792 |
-| **híbrido** (α=1, β=1,5, γ=1) | **0,939** | **1,000** | **0,967** |
+| embeddings only | 0.712 | 0.894 | 0.807 |
+| attributes only | 0.727 | 0.833 | 0.792 |
+| **hybrid** (α=1, β=1.5, γ=1) | **0.939** | **1.000** | **0.967** |
 
-MRR por tipo:
+MRR by query type:
 
-| configuração | direta | leiga | negação | ambígua |
+| configuration | direct | lay | negation | ambiguous |
 |---|---|---|---|---|
-| só embeddings | 0,932 | 0,823 | 0,568 | 0,837 |
-| só atributos | 0,790 | 0,727 | 0,826 | 0,897 |
-| híbrido | 0,977 | 0,952 | 0,952 | 1,000 |
+| embeddings only | 0.932 | 0.823 | 0.568 | 0.837 |
+| attributes only | 0.790 | 0.727 | 0.826 | 0.897 |
+| hybrid | 0.977 | 0.952 | 0.952 | 1.000 |
 
-Comparação de modelos (híbrido com os mesmos pesos):
+Model comparison (hybrid with the same weights):
 
-| modelo | só embeddings (MRR) | híbrido (MRR) |
+| model | embeddings only (MRR) | hybrid (MRR) |
 |---|---|---|
-| multilingual-e5-base | 0,807 | 0,967 |
-| paraphrase-multilingual-mpnet-base-v2 | 0,616 | 0,908 |
+| multilingual-e5-base | 0.807 | 0.967 |
+| paraphrase-multilingual-mpnet-base-v2 | 0.616 | 0.908 |
 
-O que os números mostram: embeddings puros vão bem em descrições diretas mas quebram em
-negação (0,568), porque "sem penas" fica perto dos dinos com penas. Os atributos resolvem a
-negação e a ambiguidade, mas sozinhos não desempatam dinos com o mesmo conjunto de traços.
-Isso piorou de 30 para 50 dinossauros (MRR de "só atributos" caiu de 0,903 para 0,792),
-porque agora mais dinos compartilham os mesmos traços. O híbrido junta os dois e caiu bem
-menos (0,981 para 0,967).
+What the numbers show: plain embeddings do well on direct descriptions but break on negation
+(0.568), because "sem penas" ("without feathers") lands close to the feathered dinosaurs.
+The attributes fix negation and ambiguity, but on their own they can't separate dinosaurs
+that share the same set of traits. That got worse going from 30 to 50 dinosaurs
+(attributes-only MRR fell from 0.903 to 0.792), because more dinosaurs now share traits. The
+hybrid combines both and dropped much less (0.981 to 0.967).
 
-Ao ampliar a base, algumas consultas antigas ganharam respostas novas igualmente corretas
-(por exemplo, Suchomimus em "come peixe" e Euoplocephalus em "tatu gigante com martelo no
-rabo"), e "parecido com um Triceratops mas sem chifres" passou a aceitar o Pachyrhinosaurus,
-que é literalmente isso.
+When the dataset grew, some older queries gained new answers that are equally correct (for
+example Suchomimus for "come peixe", "eats fish", and Euoplocephalus for "tatu gigante com
+martelo no rabo", "giant armadillo with a hammer on its tail"), and "parecido com um
+Triceratops mas sem chifres" ("like a Triceratops but without horns") now also accepts
+Pachyrhinosaurus, which is literally that.
 
-Erros restantes do híbrido (top-1); deixados como estão para não ajustar o léxico ao teste:
-- "crista tubular longa curvada para trás e bico achatado": Corythosaurus em 1º,
-  Parasaurolophus em 2º. O léxico não distingue o formato da crista.
-- "girafa pré-histórica": Mamenchisaurus em 1º, Brachiosaurus em 2º. "Girafa" vira só
-  `pescoco_longo`, sem a postura inclinada.
-- "minúsculo, cabe no colo e come lagartos": Archaeopteryx em 1º, Compsognathus em 2º.
-- "ceratopsiano sem chifres com uma placa grossa no nariz": Pachyrhinosaurus em 3º. "Placa"
-  vira `placas` (as do Stegosaurus), um falso positivo do léxico.
+Remaining hybrid misses (top-1), left as they are so the lexicon isn't tuned to the test:
+- "crista tubular longa curvada para trás e bico achatado" (long tubular crest curving back,
+  flat beak): Corythosaurus 1st, Parasaurolophus 2nd. The lexicon doesn't capture crest
+  shape.
+- "girafa pré-histórica" (prehistoric giraffe): Mamenchisaurus 1st, Brachiosaurus 2nd.
+  "Girafa" maps only to `pescoco_longo` (long neck), not to the sloped posture.
+- "minúsculo, cabe no colo e come lagartos" (tiny, fits on your lap, eats lizards):
+  Archaeopteryx 1st, Compsognathus 2nd.
+- "ceratopsiano sem chifres com uma placa grossa no nariz" (hornless ceratopsian with a thick
+  plate on the nose): Pachyrhinosaurus 3rd. "Placa" maps to `placas` (Stegosaurus-style
+  plates), a lexicon false positive.
 
-### Hub de embedding: Dilophosaurus
+### Embedding hub: Dilophosaurus
 
-Em consultas genéricas de carnívoro ("carnívoro de duas patas", "predador bípede"), todos os
-terópodes empatam nos atributos e o denso desempata. O Dilophosaurus ganhava quase sempre
-(top-3 em 8 de 16 consultas genéricas) porque duas das suas cinco passagens eram genéricas
-("predador magro com crista dupla", "Predador bípede esguio..."), e a média das 2 melhores
-premiava isso. Uma correção global de hubness (subtrair a similaridade média de cada dino
-contra as paráfrases dos outros) quase não ajudou (8 para 6), porque o problema era local ao
-grupo dos carnívoros. A correção foi nos dados: as passagens dele agora descrevem a crista
-dupla em vez de "predador de duas patas". Resultado: 0 de 16, híbrido inalterado (0,967), e
-"só embeddings" caiu de 0,814 para 0,800, porque parte do acerto vinha do próprio hub. Regra
-para novas entradas: paráfrases devem descrever o que distingue o animal, não a categoria.
+On generic carnivore queries ("carnívoro de duas patas", "predador bípede"), every theropod
+ties on attributes and the dense score breaks the tie. Dilophosaurus won almost every time
+(top-3 in 8 of 16 generic queries) because two of its five passages were generic ("predador
+magro com crista dupla", "Predador bípede esguio...", "slim predator...", "slender bipedal
+predator..."), and averaging the 2 best rewarded that. A global hubness correction
+(subtracting each dinosaur's mean similarity to the other dinosaurs' paraphrases) barely
+helped (8 to 6), because the problem was local to the carnivore group. The fix was in the
+data: its passages now describe the double crest instead of "two-legged predator". Result:
+0 of 16, hybrid unchanged (0.967), and embeddings-only fell from 0.814 to 0.800 because part
+of its accuracy came from the hub itself. Rule for new entries: paraphrases should describe
+what sets the animal apart, not its category.
 
-O mesmo aconteceu entre as duas espécies de *Spinosaurus*: "espinossauro" e "spinosaurus"
-traziam o *mirabilis* em 1º, porque só as passagens dele usavam o nome ("espinossauro com
-crista...", "parente do Spinosaurus..."). O *aegyptiacus* passou a ter o nome popular nas
-passagens ("o espinossauro clássico"), e o casamento de nome acima resolve os nomes completos.
-Em 18 consultas que descrevem o espinossauro clássico, 17 trazem o *aegyptiacus* em 1º (a
-exceção, "terópode de 14 metros...", falha porque o extrator não lê metros).
+The same happened between the two *Spinosaurus* species: "espinossauro" and "spinosaurus"
+returned *mirabilis* first, because only its passages used the name ("espinossauro com
+crista...", "parente do Spinosaurus..."). *Aegyptiacus* now has the common name in its
+passages ("o espinossauro clássico", "the classic spinosaur"), and the name matching above
+handles full names. Of 18 queries describing the classic spinosaur, 17 return *aegyptiacus*
+first (the exception, "terópode de 14 metros...", fails because the extractor doesn't read
+metres).
 
-### Testado e descartado
+### Tried and dropped
 
-Remover os trechos negados da consulta antes de embuti-la ("carnívoro grande sem penas"
-vira "carnívoro grande") parecia óbvio, mas não mudou nada com os pesos finais (0,981 nos
-dois casos) e piorou as negações com β baixo. Foi removido.
+Stripping negated phrases from the query before embedding it ("carnívoro grande sem penas"
+becomes "carnívoro grande") seemed obvious, but it changed nothing with the final weights
+(MRR 0.981 both ways, measured on the 30-dinosaur dataset) and made negations worse at low β.
+It was removed.
 
-### Limitações
+### Limitations
 
-- **Viés do autor.** A base, as paráfrases, o léxico e as consultas de teste foram escritos
-  pela mesma pessoa (no caso, o modelo que gerou o projeto). As consultas usam vocabulário
-  diferente das paráfrases, mas o léxico do extrator foi escrito conhecendo as consultas, e
-  os pesos foram ajustados nesse mesmo conjunto. Os números de "só atributos" e "híbrido"
-  são otimistas. Uma avaliação honesta precisa de consultas escritas por outras pessoas.
-- O extrator ignora negação de postura ou dieta ("não é carnívoro" só deixa a dieta sem
-  valor, não penaliza carnívoros) e só entende comparações de tamanho de uma lista fixa.
-- O denso é normalizado por consulta (min-max), então o melhor resultado sempre recebe 1 no
-  componente denso, mesmo para uma consulta sem sentido. A `similaridade` mostrada é relativa
-  ao melhor score possível para aquela consulta, não uma probabilidade.
-- `DenseIndex` é uma única classe concreta. Trocar por FAISS significa reescrever
-  `scores()` (a multiplicação de matrizes e a agregação), sem mudar o resto.
-- 50 itens: NumPy de força bruta é o certo aqui; a abstração `DenseIndex` existe para o
-  dia em que não for.
+- **Author bias.** The dataset, paraphrases, lexicon and test queries were all written by
+  the same author (the model that generated the project). The queries use different
+  vocabulary from the paraphrases, but the extractor lexicon was written knowing the queries,
+  and the weights were tuned on the same set. The attributes-only and hybrid numbers are
+  optimistic. An honest evaluation needs queries written by other people.
+- The extractor ignores negated posture or diet ("não é carnívoro" only leaves the diet
+  unset; it doesn't penalize carnivores), and only understands size comparisons from a fixed
+  list. It doesn't read measurements in metres.
+- The dense score is normalized per query (min-max), so the top result always gets 1 on the
+  dense component, even for a nonsense query. The displayed `similaridade` is relative to the
+  best score possible for that query, not a probability.
+- `DenseIndex` is a single concrete class. Moving to FAISS means rewriting `scores()` (the
+  matrix product and the aggregation) without touching the rest.
+- 50 items: brute-force NumPy is the right call here; `DenseIndex` exists for the day it
+  isn't.
 
-## Créditos das ilustrações
+## Illustration credits
 
-As ilustrações em `static/img/` vêm da [Wikimedia Commons](https://commons.wikimedia.org/),
-reduzidas para 320 px de largura e convertidas para PNG. Todas têm licença Creative Commons
-(CC BY ou CC BY-SA); as adaptações seguem a mesma licença do original. Autor, licença e link
-de cada uma também aparecem no card e em `static/img/credits.json`.
+The illustrations in `static/img/` come from [Wikimedia Commons](https://commons.wikimedia.org/),
+downscaled to 320 px wide and converted to PNG. All are Creative Commons licensed (CC BY or
+CC BY-SA); the adaptations carry the same license as the original. Author, license and link
+for each one also appear on the card and in `static/img/credits.json`.
 
-| dinossauro | autor | licença |
+| dinosaur | author | license |
 |---|---|---|
 | Tyrannosaurus | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Tyrannosaurus_rex_Reconstruction_by_Nobu_Tamura.jpg) |
 | Triceratops | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Triceratops_BW.jpg) |
