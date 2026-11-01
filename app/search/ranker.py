@@ -5,12 +5,14 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
 
+import re
+
 import numpy as np
 import yaml
 
 from app.search.dinos import SIZES, Dino, load_dinos
 from app.search.embedder import Aggregation, DenseIndex, Embedder
-from app.search.extractor import Extractor, QueryAttrs, get_extractor
+from app.search.extractor import Extractor, QueryAttrs, get_extractor, normalize
 
 CONFIG_PATH = Path(__file__).resolve().parents[1] / "config.yaml"
 
@@ -63,8 +65,16 @@ def _categorical(q: str, d: str, compat: dict[frozenset[str], float]) -> float:
     return 1.0 if q == d else compat.get(frozenset({q, d}), 0.0)
 
 
-def score_attributes(q: QueryAttrs, dino: Dino) -> AttrMatch:
-    """Mean match over every attribute the query mentions; negated traits add penalty."""
+def name_match(query: str, dino: Dino) -> float:
+    """Fraction of the dino's name words present in the query ("spinosaurus" -> 0.5 for each species)."""
+    words = set(re.findall(r"\w+", normalize(query)))
+    parts = normalize(dino.nome).split()
+    return sum(p in words for p in parts) / len(parts)
+
+
+def score_attributes(q: QueryAttrs, dino: Dino, name: float | None = None) -> AttrMatch:
+    """Mean match over every attribute the query mentions; negated traits add penalty.
+    `name` is this dino's name match, passed only when the query names some dino."""
     m = AttrMatch()
     parts: list[float] = []
 
@@ -90,6 +100,8 @@ def score_attributes(q: QueryAttrs, dino: Dino) -> AttrMatch:
         record(f"tamanho: {q.tamanho}", 1 - dist / 3, dist >= 2)
     for t in sorted(q.tracos):
         record(t, (UNCERTAIN_WEIGHT if dino.tracos[t] else 1.0) if t in dino.tracos else 0.0, False)
+    if name is not None:
+        record(f"nome: {dino.nome}", name, False)
     for t in sorted(q.negados):
         if t in dino.tracos:
             m.penalty += UNCERTAIN_PENALTY if dino.tracos[t] else 1.0
@@ -128,10 +140,12 @@ class Ranker:
         span = float(raw.max() - raw.min())
         dense_n = (raw - raw.min()) / span if span > 0 else np.zeros_like(raw)
         attrs = self.extractor(query)
-        matches = [score_attributes(attrs, d) for d in self.dinos]
+        names = [name_match(query, d) for d in self.dinos]
+        named = any(names)
+        matches = [score_attributes(attrs, d, n if named else None) for d, n in zip(self.dinos, names)]
         final = [w.alpha * float(dn) + w.beta * m.score - w.gamma * m.penalty for dn, m in zip(dense_n, matches)]
         order = sorted(range(len(self.dinos)), key=lambda i: -final[i])[:top_k]
-        best = (w.alpha + (0 if attrs.is_empty() else w.beta)) or 1.0
+        best = (w.alpha + (0 if attrs.is_empty() and not named else w.beta)) or 1.0
         return [
             Result(
                 nome=self.dinos[i].nome, score_final=round(final[i], 4),

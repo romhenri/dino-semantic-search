@@ -41,3 +41,13 @@ def test_attribute_only_ranking_handles_negation() -> None:
     top = [x.nome for x in r.search("bico de pato sem crista", top_k=3)]
     assert top[0] == "Edmontosaurus"
     assert "Parasaurolophus" not in top
+
+
+def test_dino_names_in_query_count_as_attribute() -> None:
+    r = Ranker(list(DINOS.values()), index=None, extractor=extract_rules, weights=Weights(0, 1, 1))
+    assert r.search("spinosaurus mirabilis", top_k=1)[0].nome == "Spinosaurus mirabilis"
+    assert r.search("Tyrannosaurus", top_k=1)[0].nome == "Tyrannosaurus"
+    top = r.search("spinosaurus", top_k=2)
+    assert {x.nome for x in top} == {"Spinosaurus aegyptiacus", "Spinosaurus mirabilis"}
+    assert top[0].score_atributos == top[1].score_atributos  # tie: dense breaks it in the hybrid
+    assert "nome: Spinosaurus mirabilis (parcial)" in top[0].tracos_correspondentes + top[1].tracos_correspondentes

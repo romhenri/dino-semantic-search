@@ -143,7 +143,7 @@
     ]
   },
   {
-    "nome": "Spinosaurus",
+    "nome": "Spinosaurus aegyptiacus",
     "periodo": "Cretáceo Superior",
     "dieta": "piscívoro",
     "tamanho": {
@@ -165,12 +165,13 @@
         "incerto": true
       }
     ],
-    "descricao_fisica": "Predador muito grande, com cerca de 14 metros, possivelmente o maior terópode conhecido. Nas costas tinha uma vela alta sustentada por espinhos vertebrais de mais de 1,5 metro. O focinho é longo e estreito como o de um crocodilo, com dentes cônicos para agarrar peixes. As patas traseiras eram curtas e a cauda alta e achatada, o que sugere hábitos semiaquáticos, embora o quanto ele nadava ainda seja debatido.",
+    "descricao_fisica": "O espinossauro clássico do Egito e do Marrocos, um predador muito grande com cerca de 14 metros, possivelmente o maior terópode conhecido. Nas costas tinha uma vela alta sustentada por espinhos vertebrais de mais de 1,5 metro. O focinho é longo e estreito como o de um crocodilo, com dentes cônicos para agarrar peixes. As patas traseiras eram curtas e a cauda alta e achatada, o que sugere hábitos semiaquáticos, embora o quanto ele nadava ainda seja debatido.",
     "parafrases": [
       "carnívoro com uma vela enorme nas costas e cara de crocodilo",
       "dinossauro que pescava, com barbatana nas costas",
       "bicho com focinho comprido de jacaré e uma crista em leque no lombo",
-      "predador gigante que vivia nos rios e comia peixe"
+      "predador gigante que vivia nos rios e comia peixe",
+      "o espinossauro famoso, o Spinosaurus original da vela gigante"
     ],
     "notas": "Postura e grau de vida aquática debatidos (Ibrahim et al. 2014, 2020; Sereno et al. 2022)."
   },
@@ -862,7 +863,7 @@
     "descricao_fisica": "Espinossaurídeo do Níger descrito em 2026, conhecido por um subadulto de cerca de 8 metros. Sua marca é uma crista óssea alta em forma de cimitarra, curvada para cima e para trás sobre o focinho. O focinho é longo e baixo, com as bordas superior e inferior quase paralelas, e os dentes da frente se encaixam uns nos outros como uma armadilha para peixes. Espinhos vertebrais longos indicam uma vela nas costas, mas o formato dela é desconhecido.",
     "parafrases": [
       "espinossauro com uma crista curva em forma de espada na cabeça",
-      "parente do Spinosaurus com um chifre de osso curvado para trás no focinho",
+      "espinossaurídeo com um chifre de osso curvado para trás no focinho",
       "dinossauro pescador do deserto do Saara com crista de cimitarra",
       "cara de crocodilo comprida e baixa com uma lâmina na testa"
     ],
