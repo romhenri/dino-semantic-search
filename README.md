@@ -84,8 +84,8 @@ ambiguous):
 | configuration | Top-1 | Top-3 | MRR |
 |---|---|---|---|
 | embeddings only | 0.742 | 0.894 | 0.825 |
-| attributes only | 0.727 | 0.833 | 0.792 |
-| **hybrid** | **0.970** | **1.000** | **0.982** |
+| attributes only | 0.742 | 0.848 | 0.807 |
+| **hybrid** | **0.985** | **1.000** | **0.992** |
 
 Caveat: the dataset, lexicon and test queries share an author, and the weights were tuned
 on the same set, so the attribute and hybrid numbers are optimistic.
