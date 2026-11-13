@@ -50,7 +50,7 @@ def test_search_validates_input(client: TestClient) -> None:
 
 
 def test_dinos_and_index(client: TestClient) -> None:
-    assert len(client.get("/dinos").json()) == 50
+    assert len(client.get("/dinos").json()) == 64
     assert client.get("/").status_code == 200
     assert client.get("/all").status_code == 200
 

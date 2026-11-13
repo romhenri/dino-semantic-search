@@ -1395,5 +1395,390 @@
       "saurópode de pescoço absurdamente longo e cabeça pequena",
       "girafa extrema da China jurássica"
     ]
+  },
+  {
+    "nome": "Oxalaia",
+    "periodo": "Cretáceo Superior",
+    "dieta": "piscívoro",
+    "tamanho": {
+      "comprimento_m": 12.0,
+      "categoria": "grande"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "focinho_longo",
+        "incerto": false
+      },
+      {
+        "traco": "semiaquatico",
+        "incerto": true
+      },
+      {
+        "traco": "vela_dorsal",
+        "incerto": true
+      }
+    ],
+    "descricao_fisica": "Espinossaurídeo brasileiro do Maranhão, o maior carnívoro já encontrado no Brasil, com estimativas de 12 a 14 metros. Conhecido apenas pela ponta do focinho e parte do céu da boca. O focinho era longo, estreito e terminava numa roseta alargada cheia de dentes cônicos. Era parente próximo do Spinosaurus e pode ter tido uma vela nas costas.",
+    "parafrases": [
+      "o espinossauro brasileiro do Maranhão",
+      "pescador gigante de focinho de crocodilo encontrado no Brasil",
+      "maior carnívoro brasileiro, parente do Spinosaurus",
+      "comedor de peixe enorme com a ponta do focinho em forma de colher"
+    ],
+    "notas": "Conhecido só por dois ossos do crânio; tamanho e vela inferidos de parentes. Alguns autores o consideram sinônimo de Spinosaurus."
+  },
+  {
+    "nome": "Irritator",
+    "periodo": "Cretáceo Inferior",
+    "dieta": "piscívoro",
+    "tamanho": {
+      "comprimento_m": 7.0,
+      "categoria": "médio"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "focinho_longo",
+        "incerto": false
+      },
+      {
+        "traco": "crista",
+        "incerto": false
+      },
+      {
+        "traco": "vela_dorsal",
+        "incerto": true
+      }
+    ],
+    "descricao_fisica": "Espinossaurídeo brasileiro da Chapada do Araripe, com cerca de 6 a 8 metros, um dos menores da família. É conhecido por um crânio quase completo, longo e raso como o de um crocodilo. Uma crista óssea baixa corria pelo topo da cabeça. As narinas ficavam bem para trás no focinho, e os dentes eram cônicos e retos, bons para segurar peixes.",
+    "parafrases": [
+      "espinossaurídeo pequeno do Ceará com cara de crocodilo",
+      "pescador de duas patas com uma cristinha no alto da cabeça",
+      "o crânio famoso que irritou os paleontólogos por ter sido adulterado",
+      "comedor de peixe brasileiro de focinho comprido e raso"
+    ],
+    "notas": "Crânio adulterado por vendedores de fósseis antes da descrição. A vela é inferida de outros espinossaurídeos."
+  },
+  {
+    "nome": "Ubirajara",
+    "periodo": "Cretáceo Inferior",
+    "dieta": "carnívoro",
+    "tamanho": {
+      "comprimento_m": 1.0,
+      "categoria": "pequeno"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "penas",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Pequeno terópode brasileiro da Formação Crato, com cerca de 1 metro. O corpo era coberto de filamentos finos que formavam uma juba ao longo do pescoço e das costas. Dois pares de fitas longas e rígidas saíam dos ombros, provavelmente para exibição. Tinha pernas finas, cauda longa e focinho curto.",
+    "parafrases": [
+      "dinossauro pequeno com juba e fitas saindo dos ombros",
+      "bichinho emplumado do Ceará com uma crina nas costas",
+      "terópode do tamanho de uma galinha com enfeites nos ombros",
+      "o fóssil que foi devolvido da Alemanha para o Brasil"
+    ],
+    "notas": "Nome informal: o artigo que o descrevia foi retirado e o fóssil foi repatriado ao Brasil em 2023."
+  },
+  {
+    "nome": "Nigersaurus",
+    "periodo": "Cretáceo Inferior",
+    "dieta": "herbívoro",
+    "tamanho": {
+      "comprimento_m": 9.0,
+      "categoria": "grande"
+    },
+    "postura": "quadrúpede",
+    "tracos": [
+      {
+        "traco": "pescoco_longo",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Saurópode africano do Níger, com cerca de 9 metros, pequeno para o grupo. A boca era larga e reta como um aspirador, com mais de 500 dentes trocados a cada duas semanas. O pescoço era curto para um saurópode, e a cabeça ficava perto do chão para pastar. O crânio era leve e cheio de aberturas.",
+    "parafrases": [
+      "pescoçudo com boca de aspirador de pó",
+      "saurópode de boca larga e reta com centenas de dentes",
+      "dinossauro que pastava rente ao chão como uma vaca",
+      "herbívoro africano de pescoço curto e focinho achatado"
+    ]
+  },
+  {
+    "nome": "Staurikosaurus",
+    "periodo": "Triássico Superior",
+    "dieta": "carnívoro",
+    "tamanho": {
+      "comprimento_m": 2.2,
+      "categoria": "pequeno"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "pernas_longas",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Um dos dinossauros mais antigos, do Rio Grande do Sul, com cerca de 2 metros e 12 quilos. Era um predador bípede leve, de pernas longas e finas, feito para correr. A mandíbula era comprida, com dentes serrilhados e curvados para trás. Tinha cinco dedos nas mãos e nos pés, um traço primitivo.",
+    "parafrases": [
+      "um dos primeiros dinossauros, carnívoro gaúcho do Triássico",
+      "caçador pequeno e corredor de pernas finas",
+      "predador primitivo de duas patas do tamanho de um cachorro",
+      "dinossauro antigo brasileiro de mandíbula comprida"
+    ]
+  },
+  {
+    "nome": "Pycnonemosaurus",
+    "periodo": "Cretáceo Superior",
+    "dieta": "carnívoro",
+    "tamanho": {
+      "comprimento_m": 8.9,
+      "categoria": "grande"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "bracos_curtos",
+        "incerto": false
+      },
+      {
+        "traco": "cabeca_grande",
+        "incerto": true
+      }
+    ],
+    "descricao_fisica": "Abelissaurídeo do Mato Grosso, com cerca de 9 metros, o maior da família. Tinha crânio curto e alto, focinho rombudo e braços minúsculos. As pernas eram fortes e a cauda larga e musculosa. É conhecido por poucos ossos, como dentes, vértebras da cauda e parte das pernas.",
+    "parafrases": [
+      "o maior abelissaurídeo, encontrado no Mato Grosso",
+      "carnívoro brasileiro de cara curta e bracinhos atrofiados",
+      "predador grande parente do Carnotaurus sem chifres",
+      "terópode do Brasil com cabeça curta e braços inúteis"
+    ],
+    "notas": "Material fragmentário; a forma do crânio é inferida de outros abelissaurídeos."
+  },
+  {
+    "nome": "Acrocanthosaurus",
+    "periodo": "Cretáceo Inferior",
+    "dieta": "carnívoro",
+    "tamanho": {
+      "comprimento_m": 11.5,
+      "categoria": "grande"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "cabeca_grande",
+        "incerto": false
+      },
+      {
+        "traco": "vela_dorsal",
+        "incerto": true
+      }
+    ],
+    "descricao_fisica": "Grande predador norte-americano, com cerca de 11 a 12 metros. Espinhos altos nas vértebras formavam uma crista musculosa do pescoço até a cauda. O crânio era longo e estreito, com dentes em forma de lâmina. Os braços eram fortes, com três dedos e garras curvas.",
+    "parafrases": [
+      "predador gigante com uma lombada alta nas costas",
+      "carnívoro de duas patas com crista musculosa no dorso",
+      "caçador americano de crânio comprido e espinhos nas vértebras",
+      "parente do Allosaurus com uma corcova baixa nas costas"
+    ],
+    "notas": "A crista dorsal era sustentada por músculos, não uma vela fina como a do Spinosaurus."
+  },
+  {
+    "nome": "Deinocheirus",
+    "periodo": "Cretáceo Superior",
+    "dieta": "onívoro",
+    "tamanho": {
+      "comprimento_m": 11.0,
+      "categoria": "grande"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "patas_dianteiras_longas",
+        "incerto": false
+      },
+      {
+        "traco": "garras_grandes",
+        "incerto": false
+      },
+      {
+        "traco": "vela_dorsal",
+        "incerto": false
+      },
+      {
+        "traco": "bico_de_pato",
+        "incerto": false
+      },
+      {
+        "traco": "penas",
+        "incerto": true
+      }
+    ],
+    "descricao_fisica": "Ornitomimossauro gigante da Mongólia, com cerca de 11 metros e 6 toneladas. Os braços tinham 2,4 metros e terminavam em garras grandes e rombudas. Espinhos altos nas costas formavam uma corcova ou vela. O focinho era longo, sem dentes e alargado na ponta como um bico de pato.",
+    "parafrases": [
+      "braços gigantes, corcova nas costas e bico de pato",
+      "parente do avestruz enorme com mãos de garra",
+      "bicho estranho da Mongólia com braços de mais de dois metros",
+      "dinossauro corcunda de bico largo que comia de tudo"
+    ]
+  },
+  {
+    "nome": "Cryolophosaurus",
+    "periodo": "Jurássico Inferior",
+    "dieta": "carnívoro",
+    "tamanho": {
+      "comprimento_m": 6.5,
+      "categoria": "médio"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "crista",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Terópode da Antártida, com cerca de 6 a 7 metros. Tinha uma crista óssea transversal acima dos olhos, curvada para a frente como um topete. O crânio era alto e estreito, com dentes serrilhados. Era um dos maiores predadores do início do Jurássico.",
+    "parafrases": [
+      "o dinossauro da Antártida com topete",
+      "carnívoro com crista de lado a lado na cabeça, como um pente",
+      "predador com um penteado ósseo estilo Elvis",
+      "terópode do polo sul com crista enrugada na testa"
+    ]
+  },
+  {
+    "nome": "Kosmoceratops",
+    "periodo": "Cretáceo Superior",
+    "dieta": "herbívoro",
+    "tamanho": {
+      "comprimento_m": 4.5,
+      "categoria": "médio"
+    },
+    "postura": "quadrúpede",
+    "tracos": [
+      {
+        "traco": "ceratopsiano",
+        "incerto": false
+      },
+      {
+        "traco": "chifres",
+        "incerto": false
+      },
+      {
+        "traco": "escudo",
+        "incerto": false
+      },
+      {
+        "traco": "bico",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Ceratopsiano de Utah, com cerca de 4,5 metros, o mais ornamentado de todos. Tinha um chifre no nariz e dois chifres sobre os olhos virados para os lados. A borda do escudo tinha uma fileira de dez ganchos curvados para baixo, como uma franja. O total chegava a quinze chifres e pontas na cabeça.",
+    "parafrases": [
+      "triceratops com franja de ganchos no escudo",
+      "dinossauro com quinze chifres na cabeça",
+      "ceratopsiano de chifres virados para os lados e gola enfeitada",
+      "rinoceronte com uma coroa de pontas dobradas"
+    ]
+  },
+  {
+    "nome": "Sinosauropteryx",
+    "periodo": "Cretáceo Inferior",
+    "dieta": "carnívoro",
+    "tamanho": {
+      "comprimento_m": 1.0,
+      "categoria": "pequeno"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "penas",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Pequeno terópode chinês, com cerca de 1 metro, o primeiro dinossauro não avialano encontrado com penas. O corpo era coberto de filamentos simples, como uma penugem. Pigmentos preservados mostram dorso ruivo, barriga clara, máscara escura nos olhos e cauda com listras. A cauda era muito longa, e os braços curtos tinham uma garra grande no polegar.",
+    "parafrases": [
+      "dinossauro pequeno com rabo listrado como de guaxinim",
+      "o primeiro dinossauro com penas descoberto",
+      "bichinho ruivo de penugem com máscara nos olhos",
+      "caçador de lagartos emplumado da China com cauda comprida"
+    ]
+  },
+  {
+    "nome": "Dreadnoughtus",
+    "periodo": "Cretáceo Superior",
+    "dieta": "herbívoro",
+    "tamanho": {
+      "comprimento_m": 26.0,
+      "categoria": "gigante"
+    },
+    "postura": "quadrúpede",
+    "tracos": [
+      {
+        "traco": "pescoco_longo",
+        "incerto": false
+      }
+    ],
+    "descricao_fisica": "Titanossauro argentino, com cerca de 26 metros e mais de 50 toneladas. É um dos maiores dinossauros com esqueleto mais completo, com cerca de 70% dos ossos. Tinha pescoço longo, cauda grossa e corpo muito largo. As pernas eram como colunas e o tronco era coberto de pele grossa.",
+    "parafrases": [
+      "pescoçudo gigante da Patagônia que não temia nada",
+      "titanossauro enorme com esqueleto quase completo",
+      "saurópode colossal do tamanho de um prédio deitado",
+      "gigante argentino de quatro patas e cauda grossa"
+    ]
+  },
+  {
+    "nome": "Concavenator",
+    "periodo": "Cretáceo Inferior",
+    "dieta": "carnívoro",
+    "tamanho": {
+      "comprimento_m": 6.0,
+      "categoria": "médio"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "vela_dorsal",
+        "incerto": false
+      },
+      {
+        "traco": "penas",
+        "incerto": true
+      }
+    ],
+    "descricao_fisica": "Terópode espanhol, com cerca de 6 metros. Duas vértebras na frente do quadril eram muito altas e formavam uma corcova pontuda nas costas. O antebraço tinha pequenas saliências que podem ser bases de penas. Era parente do Carcharodontosaurus, com crânio longo e dentes em lâmina.",
+    "parafrases": [
+      "predador espanhol com uma corcova pontuda nas costas",
+      "carnívoro com um calombo alto antes do quadril",
+      "corcunda de Cuenca de duas patas",
+      "terópode com uma barbatana pequena e triangular no lombo"
+    ],
+    "notas": "Se as saliências no antebraço eram bases de penas é debatido."
+  },
+  {
+    "nome": "Vespersaurus",
+    "periodo": "Cretáceo Superior",
+    "dieta": "carnívoro",
+    "tamanho": {
+      "comprimento_m": 1.6,
+      "categoria": "pequeno"
+    },
+    "postura": "bípede",
+    "tracos": [
+      {
+        "traco": "pernas_longas",
+        "incerto": true
+      }
+    ],
+    "descricao_fisica": "Pequeno terópode do Paraná, achado em Cruzeiro do Oeste, com cerca de 1,6 metro. Vivia num antigo deserto de dunas. Andava apoiado em um só dedo de cada pé, já que os dedos laterais eram reduzidos, algo raro entre dinossauros. Era um predador leve e ágil, de pernas finas e dentes pequenos e afiados.",
+    "parafrases": [
+      "dinossauro que andava na ponta de um dedo só",
+      "carnívoro pequeno do deserto do Paraná",
+      "predador brasileiro leve que pisava com um único dedo",
+      "terópode do tamanho de um cachorro grande, parente do Noasaurus"
+    ],
+    "notas": "Conhecido por esqueletos parciais de vários indivíduos. As penas da ilustração são especulativas."
   }
 ]
