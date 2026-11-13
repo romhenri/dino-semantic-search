@@ -98,13 +98,13 @@ function card(h) {
     ...h.tracos_conflitantes.map((t) => `<span class="chip bad" title="conflita com a descrição">${esc(label(t))}</span>`),
     ...h.tracos_nao_correspondentes.map((t) => `<span class="chip miss" title="não tem">${esc(label(t))}</span>`),
   ].join("");
-  const pct = Math.round(h.similaridade * 100);
+  const similarity = h.similaridade;
   const c = credits[h.nome];
   const credit = c ? `<figcaption>${esc(c.autor)} · <a href="${esc(c.fonte)}" target="_blank" rel="noopener">${esc(c.licenca)}</a></figcaption>` : "";
   return `<article class="card">
     <div>
-      <div class="head"><h2>${esc(h.nome)}</h2><span class="score">${pct}%</span></div>
-      <div class="bar" role="meter" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"><div style="width:${pct}%"></div></div>
+      <div class="head"><h2>${esc(h.nome)}</h2><span class="score">Similaridade ${similarity.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 4 })}</span></div>
+      <div class="bar" aria-hidden="true"><div style="width:${similarity * 100}%"></div></div>
       ${chips ? `<div class="chips">${chips}</div>` : ""}
       <p class="desc">${esc(h.descricao_fisica)}</p>
       <div class="meta">final ${h.score_final.toFixed(3)} · embedding ${h.score_embedding.toFixed(3)} · atributos ${h.score_atributos.toFixed(2)}${h.penalidade ? ` · penalidade ${h.penalidade}` : ""}</div>

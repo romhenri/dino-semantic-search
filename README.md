@@ -39,7 +39,7 @@ curl -s localhost:8000/search -H 'Content-Type: application/json' \
 [{
   "nome": "Allosaurus",
   "score_final": 2.2557,
-  "similaridade": 0.9023,
+  "similaridade": 0.9411,
   "score_embedding": 0.8528,
   "score_atributos": 1.0,
   "penalidade": 0.0,
@@ -51,6 +51,10 @@ curl -s localhost:8000/search -H 'Content-Type: application/json' \
 ```
 
 `GET /dinos` lists the dataset as JSON; `/all` shows it as an illustrated grid.
+
+`similaridade` is a match score on a 0–1 scale. It combines raw cosine similarity,
+positive attribute matches when present, and exclusion penalties. The sort order
+uses `score_final`, which includes per-query normalization and the popularity bonus.
 
 ## How it works
 

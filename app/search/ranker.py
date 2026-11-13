@@ -60,7 +60,7 @@ class Result:
 
     nome: str
     score_final: float
-    similaridade: float  # score_final over the best score this query could reach, in [0, 1]
+    similaridade: float  # weighted raw cosine and attribute match, minus penalties, in [0, 1]
     score_embedding: float
     score_atributos: float
     penalidade: float
@@ -171,11 +171,18 @@ class Ranker:
                  + (POPULARITY_BONUS if d.nome in POPULAR else 0.0)
                  for d, dn, m in zip(self.dinos, dense_n, matches)]
         order = sorted(range(len(self.dinos)), key=lambda i: -final[i])[:top_k]
-        best = (w.alpha + (0 if attrs.is_empty() and not named else w.beta)) or 1.0
+        has_positive_attributes = bool(attrs.postura or attrs.dieta or attrs.tamanho or attrs.tracos or named)
+        best = (w.alpha + (w.beta if has_positive_attributes else 0.0)) or 1.0
+        # Use the model's cosine scale for the reported score. The relative
+        # normalization and popularity bonus only affect ranking.
+        similarity = [
+            (w.alpha * float(cosine) + w.beta * match.score - w.gamma * match.penalty) / best
+            for cosine, match in zip(raw, matches)
+        ]
         return [
             Result(
                 nome=self.dinos[i].nome, score_final=round(final[i], 4),
-                similaridade=round(min(max(final[i] / best, 0.0), 1.0), 4), score_embedding=round(float(raw[i]), 4),
+                similaridade=round(min(max(similarity[i], 0.0), 1.0), 4), score_embedding=round(float(raw[i]), 4),
                 score_atributos=round(matches[i].score, 4), penalidade=matches[i].penalty,
                 tracos_correspondentes=matches[i].matched, tracos_nao_correspondentes=matches[i].missing,
                 tracos_conflitantes=matches[i].conflicts, descricao_fisica=self.dinos[i].descricao_fisica,

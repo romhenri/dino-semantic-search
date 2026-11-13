@@ -35,6 +35,15 @@ def test_search_distinguishes_nasal_plates_from_back_plates(client: TestClient) 
     assert set(hit["tracos_correspondentes"]) == {"ceratopsiano", "placa_nasal", "sem chifres"}
 
 
+def test_reported_similarity_uses_raw_cosine_without_positive_attributes(client: TestClient) -> None:
+    for query in ("qual é a capital da França?", "sem penas"):
+        response = client.post("/search", json={"query": query, "top_k": 1})
+        assert response.status_code == 200
+        hit = response.json()[0]
+        assert hit["penalidade"] == 0
+        assert 0 < hit["similaridade"] == hit["score_embedding"] < 1
+
+
 def test_search_validates_input(client: TestClient) -> None:
     assert client.post("/search", json={"query": ""}).status_code == 422
     assert client.post("/search", json={"query": "x", "top_k": 0}).status_code == 422
