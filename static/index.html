@@ -19,6 +19,7 @@
   main { max-width: 760px; margin: 0 auto; padding: 40px 16px 64px; }
   h1 { font-size: 1.6rem; margin: 0 0 4px; }
   .sub { color: var(--muted); margin: 0 0 24px; }
+  .sub a { color: var(--accent); }
   form { display: flex; gap: 8px; }
   textarea { flex: 1; resize: vertical; min-height: 52px; padding: 12px; font: inherit;
              color: var(--ink); background: var(--card); border: 1px solid var(--line); border-radius: 8px; }
@@ -59,7 +60,7 @@
 <body>
 <main>
   <h1>Dino Search</h1>
-  <p class="sub">Descreva a aparência de um dinossauro e veja os mais parecidos.</p>
+  <p class="sub">Descreva a aparência de um dinossauro e veja os mais parecidos. <a href="/all">Ver todos</a></p>
 
   <form id="f">
     <textarea id="q" aria-label="Descrição física do dinossauro" placeholder="ex.: quadrúpede enorme com placas nas costas e espinhos na cauda" required></textarea>

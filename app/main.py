@@ -55,3 +55,9 @@ def dinos(request: Request) -> list[dict]:
 def index() -> FileResponse:
     """The single-page front-end."""
     return FileResponse(STATIC / "index.html")
+
+
+@app.get("/all", include_in_schema=False)
+def all_dinos() -> FileResponse:
+    """Grid with every dino in the dataset."""
+    return FileResponse(STATIC / "all.html")

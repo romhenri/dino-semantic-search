@@ -50,7 +50,7 @@ curl -s localhost:8000/search -H 'Content-Type: application/json' \
 }]
 ```
 
-`GET /dinos` lists the dataset.
+`GET /dinos` lists the dataset as JSON; `/all` shows it as an illustrated grid.
 
 ## How it works
 

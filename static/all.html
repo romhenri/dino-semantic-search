@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Todos os dinossauros · Dino Search</title>
+<style>
+  :root {
+    --bg: #f7f6f2; --card: #ffffff; --ink: #1d1c1a; --muted: #6b6860;
+    --line: #e3e0d8; --accent: #2f6f4f; --chip: #eef3ef; --bad: #a33a2b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #151614; --card: #1e201d; --ink: #ecebe6; --muted: #9a978f;
+            --line: #30332e; --accent: #7cc39b; --chip: #263029; --bad: #e08070; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 1120px; margin: 0 auto; padding: 40px 16px 64px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .sub a { color: var(--accent); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+  /* Paleoart ships on white backgrounds; keep a white tile in dark mode too. */
+  .card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain;
+              background: #fff; border-radius: 8px; border: 1px solid var(--line); }
+  .card h2 { font-size: 1rem; margin: 10px 0 2px; }
+  .meta { font-size: .82rem; color: var(--muted); margin: 0 0 8px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .chip { font-size: .75rem; padding: 1px 7px; border-radius: 999px; background: var(--chip); }
+  .err { color: var(--bad); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Todos os dinossauros</h1>
+  <p class="sub"><span id="n"></span> <a href="/">Voltar à busca</a></p>
+  <div class="grid" id="grid" aria-live="polite"></div>
+</main>
+
+<script>
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const label = (t) => t.replaceAll("_", " ");
+
+fetch("/dinos").then((r) => r.json()).then((dinos) => {
+  document.getElementById("n").textContent = `${dinos.length} dinossauros na base.`;
+  document.getElementById("grid").innerHTML = dinos.map((d) => `<article class="card">
+    <img src="/img/${encodeURIComponent(d.nome)}.png" alt="Ilustração de ${esc(d.nome)}" loading="lazy">
+    <h2>${esc(d.nome)}</h2>
+    <p class="meta">${esc(d.periodo)} · ${esc(d.dieta)} · ${esc(d.postura)} · ${d.tamanho.comprimento_m} m</p>
+    <div class="chips">${d.tracos.map((t) => `<span class="chip">${esc(label(t.traco))}${t.incerto ? "?" : ""}</span>`).join("")}</div>
+  </article>`).join("");
+}).catch((e) => {
+  document.getElementById("grid").innerHTML = `<p class="err">Falha ao carregar: ${esc(e.message)}</p>`;
+});
+</script>
+</body>
+</html>
