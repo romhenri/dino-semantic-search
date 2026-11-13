@@ -66,6 +66,15 @@ TRAIT_LEXICON: dict[str, list[str]] = {
     "crista": [r"cristas?", r"tubo (na|saindo da) cabeca", r"trompete", r"trombone", r"cimitarra",
                 r"machad(o|inha) na cabeca"],
     "placas": [r"placas?"],
+    "placa_nasal": [
+        r"placas? nasais?",
+        r"(?:(?:grande|grossa|rugosa) )?placas?"
+        r"(?: (?:osseas?|grossas?|rugosas?|grandes?|espessas?|e)){0,5}"
+        r" (?:n[oa]|sobre (?:o|a)|d[oe]) (?:nariz|focinho)",
+        r"(?:calombo|almofada)(?: (?:grosso|grossa|ossea|de osso))? n[oa] (?:nariz|focinho|cara)",
+        r"focinho rugoso",
+    ],
+    "ceratopsiano": [r"ceratopsian[oa]s?"],
     "espinhos": [r"espinhos?", r"espetos?", r"espetad[oa]", r"espinhent[oa]"],
     "espinhos_cauda": [r"(espinhos?|espetos?|pontas?) n[ao] (ponta d[ao] )?(cauda|rabo)", r"(cauda|rabo) (pontud[oa]|espinhos[oa])"],
     "vela_dorsal": [r"velas?", r"barbatana", r"leque nas costas", r"corcova"],
@@ -187,7 +196,7 @@ def extract_rules(query: str) -> QueryAttrs:
     traits = _trait_spans(text)
     postures = _category_spans(POSTURE_LEXICON, text)
     diets = _category_spans(DIET_LEXICON, text)
-    sizes = _category_spans(SIZE_LEXICON, text, traits)
+    sizes = _category_spans(SIZE_LEXICON, text, [span for span in traits if span[2] != "ceratopsiano"])
     negated = _negated(text, traits, postures + diets + sizes)
 
     def split(spans: list[Span]) -> tuple[list[str], set[str]]:

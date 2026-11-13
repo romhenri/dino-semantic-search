@@ -12,11 +12,11 @@ DIETS = ("carnívoro", "herbívoro", "onívoro", "piscívoro")
 SIZES = ("pequeno", "médio", "grande", "gigante")  # ordinal: index = rank
 POSTURES = ("bípede", "quadrúpede", "facultativo")
 TRAITS = (
-    "chifres", "escudo", "crista", "placas", "espinhos", "espinhos_cauda",
+    "chifres", "escudo", "crista", "placas", "placa_nasal", "espinhos", "espinhos_cauda",
     "vela_dorsal", "armadura", "clava_cauda", "penas", "asas", "pescoco_longo",
     "cauda_chicote", "patas_dianteiras_longas", "garras_grandes",
     "espinho_polegar", "cabeca_domo", "bico", "bico_de_pato", "bracos_curtos",
-    "cabeca_grande", "focinho_longo", "pernas_longas", "semiaquatico",
+    "cabeca_grande", "focinho_longo", "pernas_longas", "semiaquatico", "ceratopsiano",
 )
 REQUIRED = ("nome", "periodo", "dieta", "tamanho", "postura", "tracos", "descricao_fisica", "parafrases")
 # Size category bounds in metres (upper bound exclusive).

@@ -24,6 +24,17 @@ def test_search_returns_ranked_explained_hits(client: TestClient) -> None:
     assert 0 <= hits[0]["similaridade"] <= 1
 
 
+def test_search_distinguishes_nasal_plates_from_back_plates(client: TestClient) -> None:
+    response = client.post("/search", json={
+        "query": "ceratopsiano sem chifres com uma placa grossa no nariz",
+        "top_k": 1,
+    })
+    assert response.status_code == 200
+    hit = response.json()[0]
+    assert hit["nome"] == "Pachyrhinosaurus"
+    assert set(hit["tracos_correspondentes"]) == {"ceratopsiano", "placa_nasal", "sem chifres"}
+
+
 def test_search_validates_input(client: TestClient) -> None:
     assert client.post("/search", json={"query": ""}).status_code == 422
     assert client.post("/search", json={"query": "x", "top_k": 0}).status_code == 422

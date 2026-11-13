@@ -61,7 +61,7 @@ score_final = α · dense + β · attributes − γ · negation_penalty + popula
 - **dense**: `intfloat/multilingual-e5-base` cosine over each dinosaur's description and
   paraphrases (mean of its 2 best vectors), min-max normalized per query.
 - **attributes**: regex lexicon (`app/search/extractor.py`) maps the query to posture, diet,
-  size and a closed vocabulary of 24 traits. Debated traits (feathers on Utahraptor, the
+  size and a closed vocabulary of traits and group labels. Debated traits (feathers on Utahraptor, the
   Spinosaurus sail...) count 0.75. Dinosaur names and nicknames (`ALIASES` in
   `ranker.py`: "t rex", "rex", "tiranossauro", "argentina") count as one more attribute.
 - **negation_penalty**: an excluded trait such as "sem penas" costs 1 when present

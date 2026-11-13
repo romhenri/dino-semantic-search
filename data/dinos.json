@@ -37,6 +37,10 @@
     "postura": "quadrúpede",
     "tracos": [
       {
+        "traco": "ceratopsiano",
+        "incerto": false
+      },
+      {
         "traco": "chifres",
         "incerto": false
       },
@@ -700,6 +704,10 @@
     "postura": "quadrúpede",
     "tracos": [
       {
+        "traco": "ceratopsiano",
+        "incerto": false
+      },
+      {
         "traco": "chifres",
         "incerto": false
       },
@@ -757,6 +765,10 @@
     },
     "postura": "quadrúpede",
     "tracos": [
+      {
+        "traco": "ceratopsiano",
+        "incerto": false
+      },
       {
         "traco": "escudo",
         "incerto": false
@@ -1166,6 +1178,14 @@
     "postura": "quadrúpede",
     "tracos": [
       {
+        "traco": "ceratopsiano",
+        "incerto": false
+      },
+      {
+        "traco": "placa_nasal",
+        "incerto": false
+      },
+      {
         "traco": "escudo",
         "incerto": false
       },
@@ -1196,6 +1216,10 @@
     },
     "postura": "bípede",
     "tracos": [
+      {
+        "traco": "ceratopsiano",
+        "incerto": false
+      },
       {
         "traco": "bico",
         "incerto": false

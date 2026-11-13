@@ -12,6 +12,16 @@ def test_longer_phrase_wins_over_substring() -> None:
     assert q.tracos == {"bico_de_pato", "espinhos_cauda"}
 
 
+def test_plate_location_and_dinosaur_group_are_preserved() -> None:
+    q = extract_rules("ceratopsiano sem chifres com uma placa grossa no nariz")
+    assert q.tracos == {"ceratopsiano", "placa_nasal"}
+    assert q.negados == {"chifres"}
+    assert extract_rules("sem calombo grosso no focinho").negados == {"placa_nasal"}
+    assert extract_rules("placas nas costas").tracos == {"placas"}
+    assert extract_rules("ceratopsiano pequeno").tamanho == "pequeno"
+    assert extract_rules("grande placa óssea grossa e rugosa sobre o nariz").tamanho is None
+
+
 def test_size_posture_diet() -> None:
     q = extract_rules("Quadrúpede ENORME que come plantas")
     assert (q.postura, q.tamanho, q.dieta) == ("quadrúpede", "gigante", "herbívoro")
