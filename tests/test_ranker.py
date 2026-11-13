@@ -36,6 +36,18 @@ def test_negated_trait_present_is_penalised_less_when_uncertain() -> None:
     assert m.penalty == 0.0 and m.matched == ["sem penas"]
 
 
+def test_excluded_categories_are_penalised_and_explained() -> None:
+    q = extract_rules("não é carnívoro nem bípede nem grande")
+    tyrannosaurus = score_attributes(q, DINOS["Tyrannosaurus"])
+    triceratops = score_attributes(q, DINOS["Triceratops"])
+    assert tyrannosaurus.penalty == 3.0
+    assert set(tyrannosaurus.conflicts) == {
+        "sem dieta: carnívoro", "sem postura: bípede", "sem tamanho: grande",
+    }
+    assert triceratops.penalty == 1.0
+    assert set(triceratops.matched) == {"sem dieta: carnívoro", "sem postura: bípede"}
+
+
 def test_attribute_only_ranking_handles_negation() -> None:
     r = Ranker(list(DINOS.values()), index=None, extractor=extract_rules, weights=Weights(0, 1, 1))
     top = [x.nome for x in r.search("bico de pato sem crista", top_k=3)]

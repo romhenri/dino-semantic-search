@@ -64,8 +64,9 @@ score_final = α · dense + β · attributes − γ · negation_penalty + popula
   size and a closed vocabulary of 24 traits. Debated traits (feathers on Utahraptor, the
   Spinosaurus sail...) count 0.75. Dinosaur names and nicknames (`ALIASES` in
   `ranker.py`: "t rex", "rex", "tiranossauro", "argentina") count as one more attribute.
-- **negation_penalty**: "sem penas", "não tem chifres" cost 1 per negated trait the
-  dinosaur has.
+- **negation_penalty**: an excluded trait such as "sem penas" costs 1 when present
+  (0.5 if debated). An exact match to an excluded diet, posture, or size such as
+  "não é carnívoro" also costs 1.
 - **popularity_bonus**: +0.1 for Tyrannosaurus, Spinosaurus aegyptiacus, Triceratops,
   Brachiosaurus, Stegosaurus, Ankylosaurus and Parasaurolophus (`POPULAR` in `ranker.py`). A
   vague description most likely means one of them, so they win close calls.

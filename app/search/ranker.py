@@ -85,7 +85,7 @@ def name_match(query: str, dino: Dino) -> float:
 
 
 def score_attributes(q: QueryAttrs, dino: Dino, name: float | None = None) -> AttrMatch:
-    """Mean match over every attribute the query mentions; negated traits add penalty.
+    """Mean match over requested attributes, with penalties for excluded attributes.
     `name` is this dino's name match, passed only when the query names some dino."""
     m = AttrMatch()
     parts: list[float] = []
@@ -120,6 +120,18 @@ def score_attributes(q: QueryAttrs, dino: Dino, name: float | None = None) -> At
             m.conflicts.append(f"sem {t}")
         else:
             m.matched.append(f"sem {t}")
+    for field, excluded, actual in (
+        ("postura", q.posturas_negadas, dino.postura),
+        ("dieta", q.dietas_negadas, dino.dieta),
+        ("tamanho", q.tamanhos_negados, dino.tamanho),
+    ):
+        for value in sorted(excluded):
+            label = f"sem {field}: {value}"
+            if value == actual:
+                m.penalty += 1.0
+                m.conflicts.append(label)
+            else:
+                m.matched.append(label)
     m.score = float(np.mean(parts)) if parts else 0.0
     return m
 

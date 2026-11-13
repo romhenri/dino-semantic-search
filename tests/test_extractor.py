@@ -56,7 +56,20 @@ def test_bare_nao_and_commas_do_not_flip_meaning() -> None:
     assert q.tracos == {"chifres"} and not q.negados
     q = extract_rules("não é pequeno, tem chifres")
     assert q.tamanho is None and q.tracos == {"chifres"}
-    assert extract_rules("não é carnívoro").dieta is None
+    assert q.tamanhos_negados == {"pequeno"}
+    assert not q.posturas_negadas and not q.dietas_negadas
+
+
+def test_category_negation_preserves_positive_attributes() -> None:
+    q = extract_rules("não é carnívoro nem bípede e é grande, sem penas")
+    assert q.dieta is None and q.postura is None and q.tamanho == "grande"
+    assert q.dietas_negadas == {"carnívoro"}
+    assert q.posturas_negadas == {"bípede"}
+    assert q.negados == {"penas"}
+    assert extract_rules("não come carne").dietas_negadas == {"carnívoro"}
+    assert extract_rules("não anda de duas patas").posturas_negadas == {"bípede"}
+    assert extract_rules("sem garras gigantes").tamanhos_negados == set()
+    assert not extract_rules("não é carnívoro").is_empty()
 
 
 def test_size_inside_trait_phrase_and_plurals() -> None:

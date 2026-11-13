@@ -4,7 +4,8 @@ The rule-based extractor is the default. Any callable `str -> QueryAttrs` can
 replace it; an LLM extractor only needs to return JSON in the shape accepted by
 `QueryAttrs.from_dict`:
     {"postura": "bípede"|null, "dieta": ...|null, "tamanho": ...|null,
-     "tracos": ["penas", ...], "negados": ["vela_dorsal", ...]}
+     "tracos": ["penas", ...], "negados": ["vela_dorsal", ...],
+     "dietas_negadas": [...], "posturas_negadas": [...], "tamanhos_negados": [...]}
 """
 
 from __future__ import annotations
@@ -19,13 +20,16 @@ from app.search.dinos import DIETS, POSTURES, SIZES, TRAITS
 
 @dataclass
 class QueryAttrs:
-    """Attributes found in a query. `negados` are traits the user explicitly excluded."""
+    """Attributes found in a query. The negation sets hold explicitly excluded values."""
 
     postura: str | None = None
     dieta: str | None = None
     tamanho: str | None = None
     tracos: set[str] = field(default_factory=set)
     negados: set[str] = field(default_factory=set)
+    dietas_negadas: set[str] = field(default_factory=set)
+    posturas_negadas: set[str] = field(default_factory=set)
+    tamanhos_negados: set[str] = field(default_factory=set)
 
     @classmethod
     def from_dict(cls, d: dict) -> QueryAttrs:
@@ -39,11 +43,17 @@ class QueryAttrs:
             postura=pick("postura", POSTURES), dieta=pick("dieta", DIETS), tamanho=pick("tamanho", SIZES),
             tracos={t for t in d.get("tracos") or [] if t in TRAITS},
             negados={t for t in d.get("negados") or [] if t in TRAITS},
+            dietas_negadas={v for v in d.get("dietas_negadas") or [] if v in DIETS},
+            posturas_negadas={v for v in d.get("posturas_negadas") or [] if v in POSTURES},
+            tamanhos_negados={v for v in d.get("tamanhos_negados") or [] if v in SIZES},
         )
 
     def is_empty(self) -> bool:
         """True when nothing structured was recognised."""
-        return not (self.postura or self.dieta or self.tamanho or self.tracos or self.negados)
+        return not (
+            self.postura or self.dieta or self.tamanho or self.tracos or self.negados
+            or self.dietas_negadas or self.posturas_negadas or self.tamanhos_negados
+        )
 
 
 Extractor = Callable[[str], QueryAttrs]
@@ -99,11 +109,10 @@ DIET_LEXICON: list[tuple[str, str]] = [
     ("carnívoro", r"carnivor[oa]|predador|cacador|com(e|ia) carne|raptor|teropode"),
 ]
 
-# Bare "não" is not a trait cue ("não sei, tem chifres"); it only blocks a
-# directly following diet/posture/size ("não é carnívoro" -> unspecified).
+# Bare "não" only negates a directly following categorical phrase.
 NEGATION_CUE = re.compile(r"\b(sem|nao tem|nao possui|nao ha|nenhum|nenhuma)\b")
 SCOPE_BREAK = re.compile(r"\b(com|mas|porem)\b|[.;,]")
-NEGATED_PREFIX = re.compile(r"\bnao( (e|eh|era|tem|anda))?\s*$")
+NEGATED_PREFIX = re.compile(r"\bnao(?:\s+(?:(?:e|eh|era)(?:\s+(?:um|uma))?|anda(?:\s+de)?))?\s*$")
 CHAIN = re.compile(r"^[\s,]*(nem|ou|e)?[\s,]*$")
 MAX_NEG_GAP = 3  # words allowed between the cue and the negated trait
 
@@ -115,57 +124,85 @@ def normalize(text: str) -> str:
     return "".join(c for c in unicodedata.normalize("NFKD", text.lower()) if not unicodedata.combining(c))
 
 
-def _first(lexicon: list[tuple[str, str]], text: str, spans: Sequence[tuple[int, int, str]] = ()) -> str | None:
-    """First label whose pattern matches outside a negation ("não é ...") and outside
-    or right after a trait phrase ("garras gigantes" describes the claws, not the animal)."""
-    trait_ends = {e for _, e, _ in spans}
-    for label, p in lexicon:
-        for m in re.finditer(rf"\b(?:{p})\b", text):
-            before = text[:m.start()]
-            in_trait = any(s <= m.start() < e for s, e, _ in spans) or len(before.rstrip()) in trait_ends
-            if not in_trait and not NEGATED_PREFIX.search(before):
-                return label
-    return None
+Span = tuple[int, int, str]
 
 
-def _trait_spans(text: str) -> list[tuple[int, int, str]]:
+def _category_spans(lexicon: list[tuple[str, str]], text: str, traits: Sequence[Span] = ()) -> list[Span]:
+    """Find categorical phrases in lexicon priority order, ignoring size adjectives on traits."""
+    trait_ends = {end for _, end, _ in traits}
+    spans: list[Span] = []
+    for label, pattern in lexicon:
+        for match in re.finditer(rf"\b(?:{pattern})\b", text):
+            start, end = match.span()
+            if any(s <= start < e for s, e, _ in traits) or len(text[:start].rstrip()) in trait_ends:
+                continue
+            if not any(start < e and s < end for s, e, _ in spans):
+                spans.append((start, end, label))
+    return spans
+
+
+def _trait_spans(text: str) -> list[Span]:
     """Non-overlapping trait matches, preferring the longest at each position."""
     found = [(m.start(), m.end(), t) for t, rx in _TRAIT_PATTERNS for m in rx.finditer(text)]
     found.sort(key=lambda s: (s[0], -(s[1] - s[0])))
-    spans: list[tuple[int, int, str]] = []
+    spans: list[Span] = []
     for s in found:
         if not spans or s[0] >= spans[-1][1]:
             spans.append(s)
     return spans
 
 
-def _negated(text: str, spans: list[tuple[int, int, str]]) -> set[int]:
-    """Indices of spans in a negation scope: the first trait after a cue, plus any chained by e/nem/ou."""
-    neg: set[int] = set()
-    for cue in NEGATION_CUE.finditer(text):
-        i = next((k for k, s in enumerate(spans) if s[0] >= cue.end()), None)
-        if i is None:
-            continue
-        between = text[cue.end():spans[i][0]]
-        if len(re.findall(r"\w+", between)) > MAX_NEG_GAP or SCOPE_BREAK.search(between):
-            continue
-        neg.add(i)
-        while i + 1 < len(spans) and CHAIN.match(text[spans[i][1]:spans[i + 1][0]]):
-            i += 1
-            neg.add(i)
-    return neg
+def _negated(text: str, traits: list[Span], categories: list[Span]) -> set[Span]:
+    """Find excluded phrases across traits and categories, including coordinated lists."""
+    spans = sorted(set(traits + categories))
+    groups: list[list[Span]] = []
+    for span in spans:
+        if groups and span[0] < max(end for _, end, _ in groups[-1]):
+            groups[-1].append(span)
+        else:
+            groups.append([span])
+
+    bounds = [(group[0][0], max(end for _, end, _ in group)) for group in groups]
+    negated: set[Span] = set()
+    previous_negated = False
+    for i, (start, _) in enumerate(bounds):
+        previous_end = bounds[i - 1][1] if i else 0
+        before = text[previous_end:start]
+        cues = list(NEGATION_CUE.finditer(before))
+        if previous_negated and CHAIN.fullmatch(before):
+            negated.update(groups[i])
+        elif cues:
+            gap = before[cues[-1].end():]
+            if len(re.findall(r"\w+", gap)) <= MAX_NEG_GAP and not SCOPE_BREAK.search(gap):
+                negated.update(groups[i])
+        elif NEGATED_PREFIX.search(before):
+            negated.update(span for span in groups[i] if span in categories)
+        previous_negated = any(span in negated for span in groups[i])
+    return negated
 
 
 def extract_rules(query: str) -> QueryAttrs:
     """Rule/lexicon-based extractor for Portuguese queries."""
     text = normalize(query)
-    spans = _trait_spans(text)
-    neg = _negated(text, spans)
-    negados = {spans[i][2] for i in neg}
-    tracos = {s[2] for k, s in enumerate(spans) if k not in neg} - negados
+    traits = _trait_spans(text)
+    postures = _category_spans(POSTURE_LEXICON, text)
+    diets = _category_spans(DIET_LEXICON, text)
+    sizes = _category_spans(SIZE_LEXICON, text, traits)
+    negated = _negated(text, traits, postures + diets + sizes)
+
+    def split(spans: list[Span]) -> tuple[list[str], set[str]]:
+        excluded = {span[2] for span in spans if span in negated}
+        return [label for _, _, label in spans if label not in excluded], excluded
+
+    posturas, posturas_negadas = split(postures)
+    dietas, dietas_negadas = split(diets)
+    tamanhos, tamanhos_negados = split(sizes)
+    tracos, negados = split(traits)
     return QueryAttrs(
-        postura=_first(POSTURE_LEXICON, text), dieta=_first(DIET_LEXICON, text),
-        tamanho=_first(SIZE_LEXICON, text, spans), tracos=tracos, negados=negados,
+        postura=next(iter(posturas), None), dieta=next(iter(dietas), None),
+        tamanho=next(iter(tamanhos), None), tracos=set(tracos), negados=negados,
+        posturas_negadas=posturas_negadas, dietas_negadas=dietas_negadas,
+        tamanhos_negados=tamanhos_negados,
     )
 
 
