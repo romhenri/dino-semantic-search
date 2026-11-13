@@ -2,7 +2,7 @@
 > Late-fusion semantic search combining dense E5 embeddings with rule-based attribute extraction to identify dinosaurs from Portuguese descriptions.
 
 Type "quadrúpede enorme com placas nas costas e espinhos na cauda" ("huge quadruped with
-plates on its back and spikes on its tail") and get the most similar of 50 dinosaurs, each
+plates on its back and spikes on its tail") and get the most similar of 64 dinosaurs, each
 with a score and a per-trait explanation.
 
 Embeddings alone get negations and sizes wrong: "sem penas" ("without feathers") lands
@@ -78,14 +78,14 @@ score_final = α · dense + β · attributes − γ · negation_penalty + popula
 Weights α = 1, β = 1.5, γ = 1 sit on the left edge of the plateau found by
 `python -m eval.run_eval --grid`. Every result lists matched, missing and conflicting traits.
 
-Results on the 66 queries in `eval/queries.json` (22 direct, 21 lay, 14 negation, 9
+Results on the 74 queries in `eval/queries.json` (26 direct, 25 lay, 14 negation, 9
 ambiguous):
 
 | configuration | Top-1 | Top-3 | MRR |
 |---|---|---|---|
-| embeddings only | 0.742 | 0.894 | 0.825 |
-| attributes only | 0.742 | 0.848 | 0.807 |
-| **hybrid** | **0.985** | **1.000** | **0.992** |
+| embeddings only | 0.770 | 0.905 | 0.847 |
+| attributes only | 0.703 | 0.797 | 0.770 |
+| **hybrid** | **0.986** | **1.000** | **0.993** |
 
 Caveat: the dataset, lexicon and test queries share an author, and the weights were tuned
 on the same set, so the attribute and hybrid numbers are optimistic.
