@@ -24,6 +24,10 @@ DIET_COMPAT = {frozenset({"carnívoro", "piscívoro"}): 0.5, frozenset({"onívor
                frozenset({"onívoro", "herbívoro"}): 0.5}
 POSTURE_COMPAT = {frozenset({"facultativo", "bípede"}): 0.5, frozenset({"facultativo", "quadrúpede"}): 0.5}
 
+# Nicknames rewritten to the dino's name before name matching (patterns run on normalized words).
+ALIASES = {r"\b(t ?)?rex\b|\btiranossauro\b": "tyrannosaurus",
+           r"\bargentina\b": "argentinosaurus"}
+
 
 @dataclass(frozen=True)
 class Weights:
@@ -67,7 +71,10 @@ def _categorical(q: str, d: str, compat: dict[frozenset[str], float]) -> float:
 
 def name_match(query: str, dino: Dino) -> float:
     """Fraction of the dino's name words present in the query ("spinosaurus" -> 0.5 for each species)."""
-    words = set(re.findall(r"\w+", normalize(query)))
+    text = " ".join(re.findall(r"\w+", normalize(query)))
+    for pattern, name in ALIASES.items():
+        text = re.sub(pattern, name, text)
+    words = set(text.split())
     parts = normalize(dino.nome).split()
     return sum(p in words for p in parts) / len(parts)
 

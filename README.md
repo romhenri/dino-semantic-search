@@ -135,7 +135,9 @@ To swap in an LLM, any `Callable[[str], QueryAttrs]` registered in `get_extracto
   that the dense score breaks in favour of *aegyptiacus*); "spinosaurus mirabilis" matches
   one species fully. Embeddings alone don't read scientific names well. A name used as a
   reference ("parecido com um Triceratops mas sem chifres", "like a Triceratops but without
-  horns") doesn't hurt, because the negation costs more than the name earns.
+  horns") doesn't hurt, because the negation costs more than the name earns. Nicknames are
+  rewritten to the name first (`ALIASES` in `ranker.py`): "t rex", "t-rex", "trex", "rex" and
+  "tiranossauro" mean Tyrannosaurus, "argentina" means Argentinosaurus.
 
 **Chosen weights: α = 1.0, β = 1.5, γ = 1.0.** The sweep (`--grid`) shows a plateau at
 MRR 0.967 for every β ≥ 1.5 and γ ≥ 0.5. Below it quality drops (β = γ = 0.25: MRR 0.931;
