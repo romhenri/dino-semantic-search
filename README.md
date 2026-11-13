@@ -262,17 +262,17 @@ for each one also appear on the card and in `static/img/credits.json`.
 |---|---|---|
 | Tyrannosaurus | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Tyrannosaurus_rex_Reconstruction_by_Nobu_Tamura.jpg) |
 | Triceratops | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Triceratops_BW.jpg) |
-| Velociraptor | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Velociraptor_mongoliensis.jpg) |
+| Velociraptor | Entelognathus | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Velociraptor_recon.png) |
 | Stegosaurus | Nobu Tamura | [CC BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Stegosaurus_BW_transparent.png) |
 | Brachiosaurus | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Brachiosaurus_NT_new.jpg) |
-| Spinosaurus aegyptiacus | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Spinosaurus_life_restoration_with_Onchopristis.jpg) |
+| Spinosaurus aegyptiacus | Connor Ashbridge | [CC BY 4.0](https://commons.wikimedia.org/wiki/File:Spinosaurus_aegyptiacus_life_reconstruction.png) |
 | Ankylosaurus | Emily Willoughby | [CC BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Ankylosaurus_magniventris_reconstruction.png) |
 | Parasaurolophus | Connor Ashbridge | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Life_reconstruction_of_Parasaurolophus_walkeri.png) |
 | Pachycephalosaurus | Fred Wierum | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Pachycephalosaurus_Reconstruction_transparent.png) |
 | Allosaurus | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Allosaurus_BW.jpg) |
-| Diplodocus | Nobu Tamura | [CC BY 3.0](https://commons.wikimedia.org/wiki/File:Diplodocus_BW.jpg) |
+| Diplodocus | Fred Wierum | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Diplodocus_carnegii.jpg) |
 | Iguanodon | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Iguanodon_new_NT_transparent.png) |
-| Brontosaurus | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Brontosaurus_NT_small.jpg) |
+| Brontosaurus | Tom Parker | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Brontosaurus_by_Tom_Parker.png) |
 | Dilophosaurus | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Dilophosaurus_NT.jpg) |
 | Carnotaurus | Nobu Tamura | [CC BY 3.0](https://commons.wikimedia.org/wiki/File:Carnotaurus_BW.jpg) |
 | Giganotosaurus | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Giganotosaurus_BW.jpg) |
@@ -291,14 +291,14 @@ for each one also appear on the card and in `static/img/credits.json`.
 | Corythosaurus | Connor Ashbridge | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Life_reconstruction_of_Corythosaurus_casuarius.png) |
 | Kentrosaurus | Nobu Tamura | [CC BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Kentrosaurus_NT_transparent.png) |
 | Spinosaurus mirabilis | Connor Ashbridge | [CC BY 4.0](https://commons.wikimedia.org/wiki/File:Spinosaurus_mirabilis.png) |
-| Ceratosaurus | Nobu Tamura | [CC BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Ceratosaurus_NT.jpg) |
+| Ceratosaurus | Connor Ashbridge | [CC BY 4.0](https://commons.wikimedia.org/wiki/File:Life_reconstruction_of_Ceratosaurus_nasicornis.png) |
 | Albertosaurus | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Albertosaurus_NT_small.jpg) |
 | Majungasaurus | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Majungasaurus_BW.jpg) |
 | Coelophysis | TotalDino | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Coelophysis_TD.png) |
 | Herrerasaurus | Nobu Tamura | [CC BY 2.5](https://commons.wikimedia.org/wiki/File:Herrerasaurus_BW.jpg) |
-| Suchomimus | Nobu Tamura | [CC BY 3.0](https://commons.wikimedia.org/wiki/File:Suchomimus_BW.jpg) |
+| Suchomimus | Connor Ashbridge | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Life_reconstruction_of_Suchomimus_tenerensis.png) |
 | Yutyrannus | Tomopteryx | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Yutyrannus_huali.png) |
-| Archaeopteryx | Nobu Tamura | [CC BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Archaeopteryx_NT.jpg) |
+| Archaeopteryx | TotalDino | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Archaeopteryx_TD.png) |
 | Ouranosaurus | Audrey.m.horn | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Ouranosaurus_nigeriensis_restoration.png) |
 | Maiasaura | Nobu Tamura | [CC BY 3.0](https://commons.wikimedia.org/wiki/File:Maiasaura_BW.jpg) |
 | Lambeosaurus | Anonymous Dinonerd | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Life_restoration_of_Lambeosaurus_lambei.jpg) |
@@ -307,6 +307,6 @@ for each one also appear on the card and in `static/img/credits.json`.
 | Euoplocephalus | Nobu Tamura | [CC BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Euoplocephalus_BW_transparent.png) |
 | Borealopelta | Connor Ashbridge | [CC BY 4.0](https://commons.wikimedia.org/wiki/File:Borealopelta_markmitchelli.png) |
 | Apatosaurus | Durbed | [CC BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Apatosaurus_louisae_by_durbed.jpg) |
-| Camarasaurus | Nobu Tamura | [CC BY 3.0](https://commons.wikimedia.org/wiki/File:Camarasaurus_BW.jpg) |
+| Camarasaurus | Connor Ashbridge | [CC BY 4.0](https://commons.wikimedia.org/wiki/File:Camarasaurus_supremus_life_reconstruction.png) |
 | Amargasaurus | Nobu Tamura | [CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Amargasaurus_NT_small.jpg) |
 | Mamenchisaurus | Connor Ashbridge | [CC BY 4.0](https://commons.wikimedia.org/wiki/File:Mamenchisaurus_sanjiangensis.png) |

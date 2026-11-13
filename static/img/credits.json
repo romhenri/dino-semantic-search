@@ -10,9 +10,9 @@
   "fonte": "https://commons.wikimedia.org/wiki/File:Triceratops_BW.jpg"
  },
  "Velociraptor": {
-  "autor": "Nobu Tamura",
-  "licenca": "CC BY 2.5",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Velociraptor_mongoliensis.jpg"
+  "autor": "Entelognathus",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Velociraptor_recon.png"
  },
  "Stegosaurus": {
   "autor": "Nobu Tamura",
@@ -25,9 +25,9 @@
   "fonte": "https://commons.wikimedia.org/wiki/File:Brachiosaurus_NT_new.jpg"
  },
  "Spinosaurus aegyptiacus": {
-  "autor": "Nobu Tamura",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Spinosaurus_life_restoration_with_Onchopristis.jpg"
+  "autor": "Connor Ashbridge",
+  "licenca": "CC BY 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Spinosaurus_aegyptiacus_life_reconstruction.png"
  },
  "Ankylosaurus": {
   "autor": "Emily Willoughby",
@@ -50,9 +50,9 @@
   "fonte": "https://commons.wikimedia.org/wiki/File:Allosaurus_BW.jpg"
  },
  "Diplodocus": {
-  "autor": "Nobu Tamura",
-  "licenca": "CC BY 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Diplodocus_BW.jpg"
+  "autor": "Fred Wierum",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Diplodocus_carnegii.jpg"
  },
  "Iguanodon": {
   "autor": "Nobu Tamura",
@@ -60,9 +60,9 @@
   "fonte": "https://commons.wikimedia.org/wiki/File:Iguanodon_new_NT_transparent.png"
  },
  "Brontosaurus": {
-  "autor": "Nobu Tamura",
+  "autor": "Tom Parker",
   "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Brontosaurus_NT_small.jpg"
+  "fonte": "https://commons.wikimedia.org/wiki/File:Brontosaurus_by_Tom_Parker.png"
  },
  "Dilophosaurus": {
   "autor": "Nobu Tamura",
@@ -155,9 +155,9 @@
   "fonte": "https://commons.wikimedia.org/wiki/File:Spinosaurus_mirabilis.png"
  },
  "Ceratosaurus": {
-  "autor": "Nobu Tamura",
-  "licenca": "CC BY-SA 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Ceratosaurus_NT.jpg"
+  "autor": "Connor Ashbridge",
+  "licenca": "CC BY 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Life_reconstruction_of_Ceratosaurus_nasicornis.png"
  },
  "Albertosaurus": {
   "autor": "Nobu Tamura",
@@ -180,9 +180,9 @@
   "fonte": "https://commons.wikimedia.org/wiki/File:Herrerasaurus_BW.jpg"
  },
  "Suchomimus": {
-  "autor": "Nobu Tamura",
-  "licenca": "CC BY 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Suchomimus_BW.jpg"
+  "autor": "Connor Ashbridge",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Life_reconstruction_of_Suchomimus_tenerensis.png"
  },
  "Yutyrannus": {
   "autor": "Tomopteryx",
@@ -190,9 +190,9 @@
   "fonte": "https://commons.wikimedia.org/wiki/File:Yutyrannus_huali.png"
  },
  "Archaeopteryx": {
-  "autor": "Nobu Tamura",
-  "licenca": "CC BY-SA 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Archaeopteryx_NT.jpg"
+  "autor": "TotalDino",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Archaeopteryx_TD.png"
  },
  "Ouranosaurus": {
   "autor": "Audrey.m.horn",
@@ -235,9 +235,9 @@
   "fonte": "https://commons.wikimedia.org/wiki/File:Apatosaurus_louisae_by_durbed.jpg"
  },
  "Camarasaurus": {
-  "autor": "Nobu Tamura",
-  "licenca": "CC BY 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Camarasaurus_BW.jpg"
+  "autor": "Connor Ashbridge",
+  "licenca": "CC BY 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Camarasaurus_supremus_life_reconstruction.png"
  },
  "Amargasaurus": {
   "autor": "Nobu Tamura",
