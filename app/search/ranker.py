@@ -28,6 +28,11 @@ POSTURE_COMPAT = {frozenset({"facultativo", "bípede"}): 0.5, frozenset({"facult
 ALIASES = {r"\b(t ?)?rex\b|\btiranossauro\b": "tyrannosaurus",
            r"\bargentina\b": "argentinosaurus"}
 
+# The best-known dinos get a small bonus: a vague query most likely means one of them.
+POPULAR = {"Tyrannosaurus", "Spinosaurus aegyptiacus", "Triceratops", "Brachiosaurus", "Stegosaurus",
+           "Ankylosaurus", "Parasaurolophus"}
+POPULARITY_BONUS = 0.1
+
 
 @dataclass(frozen=True)
 class Weights:
@@ -150,7 +155,9 @@ class Ranker:
         names = [name_match(query, d) for d in self.dinos]
         named = any(names)
         matches = [score_attributes(attrs, d, n if named else None) for d, n in zip(self.dinos, names)]
-        final = [w.alpha * float(dn) + w.beta * m.score - w.gamma * m.penalty for dn, m in zip(dense_n, matches)]
+        final = [w.alpha * float(dn) + w.beta * m.score - w.gamma * m.penalty
+                 + (POPULARITY_BONUS if d.nome in POPULAR else 0.0)
+                 for d, dn, m in zip(self.dinos, dense_n, matches)]
         order = sorted(range(len(self.dinos)), key=lambda i: -final[i])[:top_k]
         best = (w.alpha + (0 if attrs.is_empty() and not named else w.beta)) or 1.0
         return [

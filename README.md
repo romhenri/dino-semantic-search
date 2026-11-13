@@ -120,7 +120,7 @@ To swap in an LLM, any `Callable[[str], QueryAttrs]` registered in `get_extracto
 `QueryAttrs.from_dict` validates the LLM's JSON against the vocabulary.
 
 **Fusion (late fusion).**
-`score_final = α · normalized_dense + β · attribute_match − γ · negation_penalty`
+`score_final = α · normalized_dense + β · attribute_match − γ · negation_penalty + popularity_bonus`
 
 - `normalized_dense`: cosine rescaled per query to [0, 1] (min-max across the 50 dinosaurs).
   E5 cosines sit in a narrow band (~0.75 to 0.9); without this the weights wouldn't be
@@ -138,6 +138,11 @@ To swap in an LLM, any `Callable[[str], QueryAttrs]` registered in `get_extracto
   horns") doesn't hurt, because the negation costs more than the name earns. Nicknames are
   rewritten to the name first (`ALIASES` in `ranker.py`): "t rex", "t-rex", "trex", "rex" and
   "tiranossauro" mean Tyrannosaurus, "argentina" means Argentinosaurus.
+- `popularity_bonus`: +0.1 for the best-known dinosaurs (`POPULAR` in `ranker.py`):
+  Tyrannosaurus, Spinosaurus aegyptiacus, Triceratops, Brachiosaurus, Stegosaurus,
+  Ankylosaurus and Parasaurolophus. Someone describing a dinosaur vaguely most likely means
+  one of these, so they win ties and near-ties. It is small next to the attribute weight
+  (β = 1.5), so it only tips close calls and doesn't override what the query says.
 
 **Chosen weights: α = 1.0, β = 1.5, γ = 1.0.** The sweep (`--grid`) shows a plateau at
 MRR 0.967 for every β ≥ 1.5 and γ ≥ 0.5. Below it quality drops (β = γ = 0.25: MRR 0.931;

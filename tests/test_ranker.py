@@ -55,3 +55,8 @@ def test_dino_names_in_query_count_as_attribute() -> None:
     assert top[0].score_atributos == top[1].score_atributos  # tie: dense breaks it in the hybrid
     assert "nome: Spinosaurus mirabilis (parcial)" in top[0].tracos_correspondentes + top[1].tracos_correspondentes
 
+
+def test_popular_dinos_win_ties() -> None:
+    r = Ranker(list(DINOS.values()), index=None, extractor=extract_rules, weights=Weights(0, 1, 1))
+    assert r.search("spinosaurus", top_k=1)[0].nome == "Spinosaurus aegyptiacus"
+    assert r.search("quatro patas", top_k=1)[0].nome in {"Triceratops", "Brachiosaurus", "Stegosaurus", "Ankylosaurus"}
